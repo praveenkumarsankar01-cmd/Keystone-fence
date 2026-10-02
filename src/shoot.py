@@ -7,6 +7,7 @@ class Q(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *a): pass
 
 def shoot(jobs, build="dist"):
+    os.makedirs(os.path.join(ROOT, "shots"), exist_ok=True)
     socketserver.TCPServer.allow_reuse_address = True
     srv = socketserver.TCPServer(("127.0.0.1", 0), functools.partial(Q, directory=os.path.join(ROOT, build)))
     port = srv.server_address[1]
