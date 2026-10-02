@@ -2,7 +2,7 @@ import os, sys, threading, http.server, socketserver, functools
 from PIL import Image
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.makedirs(root + '/shots', exist_ok=True)
-noise =Image.frombytes('RGB', (504, 378), os.urandom(504 * 378 * 3)).resize((4032, 3024), Image.BILINEAR)
+noise = Image.frombytes('RGB', (504, 378), os.urandom(504 * 378 * 3)).resize((4032, 3024), Image.BILINEAR)
 noise.save(root + '/shots/phone.jpg', quality=92)
 ORIG = os.path.getsize(root + '/shots/phone.jpg')
 print('test photo: 4032x3024,', round(ORIG / 1024), 'KB')
