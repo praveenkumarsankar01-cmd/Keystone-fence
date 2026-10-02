@@ -1,0 +1,7 @@
+dist/
+preview/
+publish/
+shots/
+__pycache__/
+*.pyc
+.DS_Store
