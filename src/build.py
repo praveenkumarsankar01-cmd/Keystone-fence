@@ -995,6 +995,12 @@ def build_notes():
             ("City", "Service scoped to the city, FAQPage"),
         ]
         srows = "".join(f"<tr><td>{E(a)}</td><td>{E(b)}</td></tr>" for a, b in schema)
+        real = os.path.join(MEDIA, "site-walk.json")     # real footage swapped in by ingest_video.py
+        if os.path.exists(real):
+            clip, kb = json.load(open(real, encoding="utf-8")), os.path.getsize(os.path.join(MEDIA, HERO_VIDEO["mp4"])) // 1024
+            film = (f"The hero film is a {clip['dur']:g}-second, " if "dur" in clip else "The hero film is a ") + f"{kb:,} KB H.264 loop cut from licensed stock footage"
+        else:
+            film = "The hero film is a 16-second, 660 KB H.264 loop rendered from the same drawing code"
         return f"""
 <section class="page-hero"><div class="wrap"><span class="code">Build notes</span><h1>How this site is built</h1>
 <p class="lede">A working website for a multi-service local contractor, built so each trade can rank on its own. {E(CONFIG['name'])} is fictional; the architecture, templates and lead system are real.</p></div></section>
@@ -1023,7 +1029,7 @@ def build_notes():
 <span class="code" style="margin-top:28px">06 · Conversion</span><h2 style="margin-top:14px">Lead system</h2>
 <ul class="checks">{''.join(f"<li>{IC['check']}<span>{E(x)}</span></li>" for x in ["Free Estimate and click-to-call in the header, plus a sticky call/estimate bar on phones", "A quote card on every service page, pre-labelled with that service", "Two-step estimate form: contact first, details and photos second", "Phone photos resized in the browser before upload, so large images don't fail", "If the form provider refuses photos, the lead is still delivered without them", "Honeypot spam trap; GA4 generate_lead and click_to_call events when analytics is on"])}</ul>
 <span class="code" style="margin-top:28px">07 · Performance</span><h2 style="margin-top:14px">Light by design</h2>
-<p>Every illustration is inline SVG drawn in code, crisp on any screen. The hero film is a 16-second, 660 KB H.264 loop rendered from the same drawing code: it shows its poster first, stays still for reduced-motion and Save-Data visitors, and pauses off-screen. Maps load lazily. Photos dropped into the photos folder are resized to 800 and 1600 px WebP and JPEG with all metadata, GPS included, stripped. One stylesheet, one deferred script, self-hosted fonts.</p>
+<p>Every illustration is inline SVG drawn in code, crisp on any screen. {film}: it shows its poster first, stays still for reduced-motion and Save-Data visitors, and pauses off-screen. Maps load lazily. Photos dropped into the photos folder are resized to 800 and 1600 px WebP and JPEG with all metadata, GPS included, stripped. One stylesheet, one deferred script, self-hosted fonts.</p>
 <span class="code" style="margin-top:28px">08 · WordPress</span><h2 style="margin-top:14px">How it maps to WordPress</h2>
 <p>The URL tree becomes the page hierarchy one to one (parent and child pages with identical slugs). Each template becomes a block pattern; titles, metas and schema move to Rank Math or Yoast; the estimate form becomes Gravity Forms or WPForms with file upload; GA4 and Search Console connect through Site Kit. Adding a city is one new page from the city template.</p>
 </div></section>

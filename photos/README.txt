@@ -9,3 +9,5 @@ Up to 3 per strip. JPG, PNG or WebP, any size. Optional captions.json in the
 same folder: {"file.jpg": {"alt": "What the photo shows", "caption": "Short caption"}}.
 The build rotates each photo upright, converts it to sRGB, strips all metadata
 (GPS included) and writes 800 and 1600 px WebP + JPEG versions.
+
+Record each file's source page, author and licence in photos/CREDITS.md.
