@@ -813,14 +813,14 @@ figure{margin:0}
 
 /* ── real map with the line map as its key ──────────────────────── */
 .map-duo{position:relative}
-.map-key{position:absolute;z-index:3;top:10px;left:10px;width:44%;padding:6px;background:var(--sheet);
+.map-key{position:absolute;z-index:3;top:10px;right:10px;width:44%;padding:6px;background:var(--sheet);
   border:1px solid var(--rule-2);box-shadow:0 2px 10px rgba(22,25,27,.12)}
 .map-key svg{display:block;width:100%;height:auto}
 .cv-key .cv-lbl{font-size:27px;letter-spacing:.03em}
 .cv-key .cv-sub{font-size:19px;letter-spacing:.05em}
 .cv-key .cv-road{stroke-width:2.2}
 .cv-key .cv-ring{stroke-width:2;stroke-dasharray:7 6}
-.map-real picture,.map-real img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.map-real picture,.map-real img,.map-stage picture,.map-stage img{position:absolute;inset:0;width:100%;height:100%;display:block}
 .map-real img{object-fit:cover}
 .map-ring{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .map-ring circle{fill:rgba(160,85,42,.05);stroke:var(--cedar);stroke-width:2;stroke-dasharray:8 6}
@@ -848,6 +848,34 @@ figure{margin:0}
   .map-key{position:static;width:auto;margin-bottom:10px;box-shadow:none}
   .map-key ~ .map-box .pin.under-key{display:block}
   .pin > a,.pin > span{font-size:9.5px;padding:2px 5px 1px}
+}
+
+/* ── full-width map (home) ───────────────────────────────────────── */
+.map-sec{padding-bottom:clamp(40px,5vw,64px)}
+.map-wide{--mh:clamp(460px,46vw,680px);--edge:max(var(--gutter),calc((100% - var(--wrap)) / 2 + var(--gutter)));position:relative}
+.map-canvas{position:relative;height:var(--mh);overflow:hidden;background:var(--sheet-2);border-block:1px solid var(--rule-2)}
+.map-canvas iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;filter:grayscale(.2) contrast(1.02)}
+.map-stage{position:absolute;left:50%;top:50%;width:max(100%,calc(var(--mh) * 2.5));aspect-ratio:5/2;transform:translate(-50%,-50%)}
+.map-wide .map-areas,.map-wide .map-key{position:absolute;z-index:3;top:24px;background:var(--sheet);border:1px solid var(--rule-2);
+  box-shadow:0 6px 22px rgba(22,25,27,.16)}
+.map-wide .map-areas{left:var(--edge);width:min(380px,34%);padding:18px 18px 16px}
+.map-wide .map-key{right:var(--edge);width:min(340px,29%);padding:6px}
+.map-areas > .code{display:block;margin-bottom:12px}
+.map-areas .chips{gap:6px}
+.map-areas .chips a,.map-areas .chips span{min-height:34px;padding:0 10px;font-size:14px;gap:6px}
+.map-areas .help{margin:12px 0 6px !important;font-size:13px}
+.map-foot{padding-top:14px}
+@media(max-width:960px){
+  .map-wide{--mh:min(92vw,560px)}
+  .map-wide .map-areas,.map-wide .map-key{position:static;width:auto;box-shadow:none}
+  .map-wide .map-areas{margin:0 var(--gutter) 18px;padding:0;border:0;background:none}
+  .map-wide .map-key{margin:0 var(--gutter) 12px}
+}
+@media(min-width:621px) and (max-width:960px){
+  .map-wide{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);column-gap:24px;align-items:start}
+  .map-wide .map-areas{margin:0 0 20px var(--gutter)}
+  .map-wide .map-key{margin:0 var(--gutter) 20px 0}
+  .map-wide .map-canvas{grid-column:1 / -1}
 }
 
 /* ── trade cards with a photo ───────────────────────────────────── */

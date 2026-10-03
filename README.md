@@ -34,9 +34,11 @@ Deploy on Vercel from this repo: `vercel.json` builds with `python3 src/build.py
   swaps in real footage (trimmed, 1280x720, audio removed).
 - **Photos** — drop images into `photos/<key>/` (see `photos/README.txt`). The build rotates
   them upright, strips all metadata (GPS included) and writes 800/1600 px WebP + JPEG.
-- **Maps** — every map carries the line map of the service area as a key in its top-left corner
-  (stacked above it on phones). Live builds embed Google Maps (keyless); the preview build shows
-  street maps rendered once from OpenStreetMap by `python3 src/static_maps.py`, with the cities pinned.
+- **Maps** — the home page has a full-width street map with the cities card on the left and the line
+  map as a key at the top right. City, area and contact pages frame their map with the same key in its
+  top-right corner (stacked above the map on phones). Street maps are rendered once from
+  OpenStreetMap by `python3 src/static_maps.py`, with the cities pinned; live city, area and contact
+  pages embed Google Maps (keyless) instead, since the artifact preview can't load it.
 
 ## Checks
 

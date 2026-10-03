@@ -396,49 +396,79 @@ def coverage_svg(ctx, current=None, key=False):
             f'<title id="cv-t">{"Key map" if key else "Schematic map"} of the North Dallas cities Keystone serves, centred on Plano</title>{"".join(parts)}</svg>')
 
 
-def real_map(ctx, map_id, place, current=None):
-    """Static OpenStreetMap render (src/static_maps.py) with the service cities pinned on top."""
+def map_layers(ctx, map_id, place, current=None, framed=True):
+    """Static OpenStreetMap render (src/static_maps.py) with the service cities pinned on top.
+    On framed maps the key covers the top-right corner: pins under it hide on wide screens
+    and labels beside it point left."""
     base = "assets/maps/" + map_id
+    w, h = static_maps.size(map_id)
     pins = []
     for c in CITIES:
         fx, fy = static_maps.project(map_id, *c["ll"])
         if not (0.03 < fx < 0.97 and 0.04 < fy < 0.96):
             continue
+        flip = fx > (0.74 if framed else 0.56) or (framed and fy < 0.52 and fx > 0.34)
         cls = ["pin"] + (["home"] if c["slug"] == "plano" else []) + (["cur"] if c["slug"] == current else []) \
-            + (["flip"] if fx > 0.74 else []) + (["under-key"] if fx < 0.48 and fy < 0.5 else [])
+            + (["flip"] if flip else []) + (["under-key"] if framed and fx > 0.52 and fy < 0.5 else [])
         label = (f'<span>{E(c["name"])}</span>' if c["slug"] == current
                  else f'<a href="{href(ctx, "service-areas/" + c["slug"] + "/")}">{E(c["name"])}</a>')
         pins.append(f'<li class="{" ".join(cls)}" style="left:{fx * 100:.1f}%;top:{fy * 100:.1f}%">{label}</li>')
     ring = ""
-    if map_id == "collin-county":     # 10-mile ring around home base
+    if map_id.startswith("collin-county"):     # 10-mile ring around home base
         (fx, fy), r = static_maps.project(map_id, *static_maps.PLANO["ll"]), static_maps.px_per_mile(map_id) * 10
-        cx, cy = fx * static_maps.W, fy * static_maps.H
-        ring = (f'<svg class="map-ring" viewBox="0 0 {static_maps.W} {static_maps.H}" aria-hidden="true">'
-                f'<circle cx="{cx:.0f}" cy="{cy:.0f}" r="{r:.0f}"/><text x="{cx:.0f}" y="{cy - r - 7:.0f}">10 MI</text></svg>')
-    return (f'<div class="map-box map-real"><picture><source type="image/webp" srcset="{href(ctx, base + ".webp")}">'
-            f'<img src="{href(ctx, base + ".jpg")}" width="{static_maps.W}" height="{static_maps.H}" loading="lazy" decoding="async" '
+        ring = (f'<svg class="map-ring" viewBox="0 0 {w} {h}" aria-hidden="true">'
+                f'<circle cx="{fx * w:.0f}" cy="{fy * h:.0f}" r="{r:.0f}"/><text x="{fx * w:.0f}" y="{fy * h - r - 7:.0f}">10 MI</text></svg>')
+    return (f'<picture><source type="image/webp" srcset="{href(ctx, base + ".webp")}">'
+            f'<img src="{href(ctx, base + ".jpg")}" width="{w}" height="{h}" loading="lazy" decoding="async" '
             f'alt="Street map of {A(place)} with the cities Keystone serves marked"></picture>{ring}'
-            f'<ul class="map-pins" aria-label="Service cities">{"".join(pins)}</ul>'
-            f'<a class="map-attr" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a></div>')
+            f'<ul class="map-pins" aria-label="Service cities">{"".join(pins)}</ul>')
+
+
+OSM_CREDIT = '<a class="map-attr" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>'
+
+
+def gmaps_link(query):
+    link = f"https://www.google.com/maps/search/?api=1&query={urllib.parse.quote_plus(query)}"
+    return f'<a href="{A(link)}" target="_blank" rel="noopener">Open in Google Maps {IC["ext"]}<span class="sr-only"> (opens in a new tab)</span></a>'
+
+
+def gmap_frame(query, zoom, place):
+    q = urllib.parse.quote_plus(query)
+    return (f'<iframe src="https://maps.google.com/maps?q={q}&amp;t=m&amp;z={zoom}&amp;output=embed&amp;iwloc=near" '
+            f'title="Google Map of {A(place)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>')
+
+
+def has_static_map(map_id):
+    return os.path.exists(os.path.join(ROOT, "static", "assets", "maps", map_id + ".jpg"))
 
 
 def gmap(ctx, query, zoom, place, note, current=None):
-    """Real map of a place with the line map as a key in its top-left corner (above it on phones).
+    """Real map of a place with the line map as a key in its top-right corner (above it on phones).
     Live builds embed Google's keyless map (lazy-loaded); the artifact preview can't load
     third-party frames, so it shows a static OpenStreetMap render with the cities pinned."""
-    q = urllib.parse.quote_plus(query)
-    link = f"https://www.google.com/maps/search/?api=1&query={q}"
     map_id = current or "collin-county"
-    if PREVIEW and not os.path.exists(os.path.join(ROOT, "static", "assets", "maps", map_id + ".jpg")):
+    if PREVIEW and not has_static_map(map_id):
         box = (f'<div class="map-box map-fallback">{coverage_svg(ctx, current)}</div>'
                f'<p class="map-note">Preview: schematic shown · the live Google Map of {E(place)} loads here on the published site</p>')
     else:
-        real = real_map(ctx, map_id, place, current) if PREVIEW else (
-            f'<div class="map-box"><iframe src="https://maps.google.com/maps?q={q}&amp;t=m&amp;z={zoom}&amp;output=embed&amp;iwloc=near" '
-            f'title="Google Map of {A(place)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>')
+        real = (f'<div class="map-box map-real">{map_layers(ctx, map_id, place, current)}{OSM_CREDIT}</div>' if PREVIEW
+                else f'<div class="map-box">{gmap_frame(query, zoom, place)}</div>')
         box = f'<div class="map-duo"><div class="map-key">{coverage_svg(ctx, current, key=True)}</div>{real}</div>'
     return (f'<figure class="sheet-frame map-frame"><span class="sheet-tag">Map · {E(place)}</span>{box}'
-            f'<figcaption class="map-cap"><span>{E(note)}</span><a href="{A(link)}" target="_blank" rel="noopener">Open in Google Maps {IC["ext"]}<span class="sr-only"> (opens in a new tab)</span></a></figcaption></figure>')
+            f'<figcaption class="map-cap"><span>{E(note)}</span>{gmaps_link(query)}</figcaption></figure>')
+
+
+def wide_map(ctx, note):
+    """Full-width Collin County map for the home page: the cities we serve on a card at the left,
+    the line map as a key at the top right. Below 960 px both stack above the map. Every build
+    uses the static render here, since the cards would cover Google's own place card."""
+    place, query = "Collin County, TX", "Collin County, Texas"
+    if not has_static_map("collin-county-wide"):
+        return f'<div class="wrap">{areas_chips(ctx)}<div style="margin-top:28px">{gmap(ctx, query, 10, place, note)}</div></div>'
+    canvas = f'<div class="map-stage">{map_layers(ctx, "collin-county-wide", place, framed=False)}</div>{OSM_CREDIT}'
+    return (f'<div class="map-wide"><div class="map-areas"><span class="code">Cities we serve</span>{areas_chips(ctx)}</div>'
+            f'<div class="map-key">{coverage_svg(ctx, key=True)}</div><div class="map-canvas">{canvas}</div></div>'
+            f'<div class="wrap map-cap map-foot"><span>{E(note)}</span>{gmaps_link(query)}</div>')
 
 
 def hero_media(ctx):
@@ -653,12 +683,10 @@ def build_home():
 <div class="commit">{com}</div>
 </div></section>
 
-<section class="sec"><div class="wrap split">
-<div><span class="code">Service areas</span><h2 style="margin:14px 0 16px">Based in Plano, working across Collin County</h2>
-<p class="lede" style="margin-bottom:22px">Our crews work from Plano across North Dallas. Every city page covers the local details — HOAs, alleys, permits and soil.</p>
-{areas_chips(ctx)}</div>
-{gmap(ctx, "Collin County, Texas", 10, "Collin County, TX", "Based in Plano · serving Collin County & North Dallas")}
-</div></section>
+<section class="sec map-sec"><div class="wrap"><div class="sec-head"><span class="code">Service areas</span><h2>Based in Plano, working across Collin County</h2>
+<p class="lede">Our crews work from Plano across North Dallas. Every city page covers the local details — HOAs, alleys, permits and soil.</p></div></div>
+{wide_map(ctx, "Based in Plano · serving Collin County & North Dallas")}
+</section>
 
 <section class="sec sheet rule-top"><div class="wrap measure">{faq_block(HOME_FAQS)}</div></section>
 {cta_band(ctx)}
@@ -1126,12 +1154,18 @@ def vercel():
     return json.dumps(cfg, indent=2) + "\n"
 
 
+def _live_maps_only(folder, names):
+    """Live pages embed Google Maps except the home page's wide map, so only that render ships."""
+    if PREVIEW or os.path.basename(folder) != "maps":
+        return []
+    return [n for n in names if not n.startswith("collin-county-wide.")]
+
+
 def main():
     if os.path.isdir(OUT):
         shutil.rmtree(OUT)
     os.makedirs(OUT)
-    shutil.copytree(os.path.join(ROOT, "static", "assets"), os.path.join(OUT, "assets"),
-                    ignore=None if PREVIEW else shutil.ignore_patterns("maps"))     # live pages embed Google Maps
+    shutil.copytree(os.path.join(ROOT, "static", "assets"), os.path.join(OUT, "assets"), ignore=_live_maps_only)
     build_home()
     build_services_index()
     for s in SILOS:

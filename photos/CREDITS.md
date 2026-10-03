@@ -48,7 +48,7 @@ serves.
 
 ## Maps
 
-`static/assets/maps/*.{webp,jpg}` (the preview build's street maps) are rendered by
+`static/assets/maps/*.{webp,jpg}` (the home page's wide map, and every map in the preview build) are rendered by
 `src/static_maps.py` from [OpenStreetMap](https://www.openstreetmap.org) tiles. Map data
 © OpenStreetMap contributors, available under the
 [Open Database License](https://www.openstreetmap.org/copyright); each map carries that credit
