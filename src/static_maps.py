@@ -4,9 +4,9 @@
 
 Each map is drawn by MapLibre GL in headless Chromium from OpenFreeMap vector tiles,
 recoloured to Google's current palette (near-white land, grey-blue roads without
-casings, mint parks, cream commercial areas), then saved as an image. The preview
-build shows these maps, since the artifact preview can't load Google's map frame;
-build.py pins the service cities on top with project(). Live pages embed Google Maps.
+casings, mint parks, cream commercial areas), then saved as an image. Both builds
+show these maps, with the service cities pinned on top by build.py (see project());
+each map's caption links to Google Maps.
 Credit (shown on every map): OpenFreeMap, © OpenMapTiles, data © OpenStreetMap
 contributors (ODbL). Run it again only when a city or a framing below changes.
 """

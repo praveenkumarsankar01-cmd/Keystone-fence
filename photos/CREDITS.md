@@ -48,9 +48,9 @@ serves.
 
 ## Maps
 
-`static/assets/maps/*.{webp,jpg}` (the preview build's maps) are rendered by `src/static_maps.py`:
+`static/assets/maps/*.{webp,jpg}` (every map on the site) are rendered by `src/static_maps.py`:
 MapLibre GL draws [OpenFreeMap](https://openfreemap.org) vector tiles (free, commercial use allowed,
 attribution required) restyled to look like Google Maps. Credit, shown on every map with links:
 OpenFreeMap, © [OpenMapTiles](https://www.openmaptiles.org/), data ©
 [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors under the Open Database License.
-The pins, the 10-mile ring and the key map are drawn by the build. Live pages embed Google Maps instead.
+The pins, the 10-mile ring and the key map are drawn by the build.

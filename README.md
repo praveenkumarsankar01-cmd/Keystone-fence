@@ -38,9 +38,9 @@ Deploy on Vercel from this repo: `vercel.json` installs `requirements.txt` (Pill
   them upright, strips all metadata (GPS included) and writes 800/1600 px WebP + JPEG.
 - **Maps** — the home page shows the cities served and the line map of the service area side by side,
   then a full-width map; city, area and contact pages frame their map with the line map as a key in
-  its top-right corner (stacked above it on phones). Live pages embed Google Maps (keyless). The
-  preview can't load Google, so it shows Google-styled maps rendered once by `python3 src/static_maps.py`
-  (MapLibre + OpenFreeMap tiles in headless Chromium), with the cities on red pins.
+  its top-right corner (stacked above it on phones). The maps are Google-styled renders made once by
+  `python3 src/static_maps.py` (MapLibre + OpenFreeMap tiles in headless Chromium), with the cities on
+  red pins and an "Open in Google Maps" link; preview and live builds show the same maps.
 
 ## Checks
 

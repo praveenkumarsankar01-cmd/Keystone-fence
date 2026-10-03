@@ -10,10 +10,12 @@ breadcrumbs, canonicals, schema and internal links stay correct as pages are
 added — the same job a CMS does.
 """
 import datetime
+import hashlib
 import html
 import io
 import json
 import os
+import posixpath
 import re
 import shutil
 import sys
@@ -85,7 +87,7 @@ def href(ctx, target):
     page = p == "" or p.endswith("/")
     if ctx.absolute:
         return "/" + p + suffix
-    rel = os.path.relpath(p.rstrip("/") or ".", ctx.path.rstrip("/") or ".")
+    rel = posixpath.relpath(p.rstrip("/") or ".", ctx.path.rstrip("/") or ".")     # URL paths: "/" on every OS
     if page:
         rel = "" if rel == "." else rel + "/"
         if PREVIEW:
@@ -93,6 +95,23 @@ def href(ctx, target):
         elif rel == "":
             rel = "./"
     return rel + suffix
+
+
+_VERSIONS = {}
+
+
+def version(path):
+    """Short content hash of a built file (path relative to the output folder)."""
+    if path not in _VERSIONS:
+        with open(os.path.join(OUT, *path.split("/")), "rb") as f:
+            _VERSIONS[path] = hashlib.md5(f.read()).hexdigest()[:10]
+    return _VERSIONS[path]
+
+
+def asset(ctx, path):
+    """Link to a static file with its content hash in the URL. Assets are cached for a week, so a
+    changed file must get a new URL or returning visitors keep the old one."""
+    return href(ctx, f"{path}?v={version(path)}")
 
 
 def url(path):
@@ -107,7 +126,7 @@ def business(full=False):
     n = {
         "@type": "HomeAndConstructionBusiness", "@id": BASE + "/#business",
         "name": CONFIG["name"], "url": BASE + "/", "telephone": CONFIG["phone_e164"], "email": CONFIG["email"],
-        "image": BASE + "/assets/og.png", "logo": BASE + "/favicon.svg",
+        "image": BASE + "/assets/og.png?v=" + version("assets/og.png"), "logo": BASE + "/favicon.svg?v=" + version("favicon.svg"),
         "address": {"@type": "PostalAddress", "addressLocality": CONFIG["city"], "addressRegion": CONFIG["region"], "addressCountry": "US"},
         "areaServed": [{"@type": "City", "name": f"{c['name']}, TX"} for c in CITIES],
         "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": d, "opens": o, "closes": c}
@@ -165,13 +184,13 @@ def head(ctx, path, title, meta, graph):
 <meta property="og:title" content="{A(title)}">
 <meta property="og:description" content="{A(meta)}">
 <meta property="og:url" content="{A(url(path))}">
-<meta property="og:image" content="{A(BASE + '/assets/og.png')}">
+<meta property="og:image" content="{A(BASE + '/assets/og.png?v=' + version('assets/og.png'))}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F1F1EC">
-<link rel="icon" href="{href(ctx, 'favicon.svg')}" type="image/svg+xml">
-<link rel="preload" href="{href(ctx, 'assets/fonts/big-shoulders-display.woff2')}" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{href(ctx, 'assets/fonts/hanken-grotesk.woff2')}" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{href(ctx, 'assets/site.css')}">
+<link rel="icon" href="{asset(ctx, 'favicon.svg')}" type="image/svg+xml">
+<link rel="preload" href="{asset(ctx, 'assets/fonts/big-shoulders-display.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{asset(ctx, 'assets/fonts/hanken-grotesk.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{asset(ctx, 'assets/site.css')}">
 <script type="application/ld+json">{ld}</script>
 {ga}</head>
 <body data-form-mode="{'preview' if PREVIEW else 'live'}">
@@ -263,7 +282,7 @@ def footer(ctx, estimate_page=False):
 </div></footer>
 {mbar}
 <script>window.KEYSTONE_FORM={json.dumps({"endpoint": CONFIG["form_endpoint"], "key": CONFIG["form_access_key"], "phone": CONFIG["phone"], "mode": "preview" if PREVIEW else "live"})};</script>
-<script src="{href(ctx, 'assets/site.js')}" defer></script>
+<script src="{asset(ctx, 'assets/site.js')}" defer></script>
 </body>
 </html>
 """
@@ -417,8 +436,8 @@ def map_layers(ctx, map_id, place, current=None, framed=True):
         (fx, fy), r = static_maps.project(map_id, *static_maps.PLANO["ll"]), static_maps.px_per_mile(map_id) * 10
         ring = (f'<svg class="map-ring" viewBox="0 0 {w} {h}" aria-hidden="true">'
                 f'<circle cx="{fx * w:.0f}" cy="{fy * h:.0f}" r="{r:.0f}"/><text x="{fx * w:.0f}" y="{fy * h - r - 7:.0f}">10 MI</text></svg>')
-    return (f'<picture><source type="image/webp" srcset="{href(ctx, base + ".webp")}">'
-            f'<img src="{href(ctx, base + ".jpg")}" width="{w}" height="{h}" loading="lazy" decoding="async" '
+    return (f'<picture><source type="image/webp" srcset="{asset(ctx, base + ".webp")}">'
+            f'<img src="{asset(ctx, base + ".jpg")}" width="{w}" height="{h}" loading="lazy" decoding="async" '
             f'alt="Street map of {A(place)} with the cities Keystone serves marked"></picture>{ring}'
             f'<ul class="map-pins" aria-label="Service cities">{"".join(pins)}</ul>')
 
@@ -444,32 +463,34 @@ def has_static_map(map_id):
 
 
 def gmap(ctx, query, zoom, place, note, current=None):
-    """Real map of a place with the line map as a key in its top-right corner (above it on phones).
-    Live builds embed Google's keyless map (lazy-loaded); the artifact preview can't load
-    third-party frames, so it shows a Google-styled render with the cities pinned."""
+    """Google-styled map of a place (src/static_maps.py) with the cities pinned and the line map as a key
+    in its top-right corner (above it on phones). Preview and live builds show the same map; the
+    caption links to Google Maps. Without a render, live builds embed Google's map instead."""
     map_id = current or "collin-county"
-    if PREVIEW and not has_static_map(map_id):
+    if has_static_map(map_id):
+        real = f'<div class="map-box map-real">{map_layers(ctx, map_id, place, current)}{MAP_CREDIT}</div>'
+    elif not PREVIEW:
+        real = f'<div class="map-box">{gmap_frame(query, zoom, place)}</div>'
+    if has_static_map(map_id) or not PREVIEW:
+        box = f'<div class="map-duo"><div class="map-key">{coverage_svg(ctx, current, key=True)}</div>{real}</div>'
+    else:
         box = (f'<div class="map-box map-fallback">{coverage_svg(ctx, current)}</div>'
                f'<p class="map-note">Preview: schematic shown · the live Google Map of {E(place)} loads here on the published site</p>')
-    else:
-        real = (f'<div class="map-box map-real">{map_layers(ctx, map_id, place, current)}{MAP_CREDIT}</div>' if PREVIEW
-                else f'<div class="map-box">{gmap_frame(query, zoom, place)}</div>')
-        box = f'<div class="map-duo"><div class="map-key">{coverage_svg(ctx, current, key=True)}</div>{real}</div>'
     return (f'<figure class="sheet-frame map-frame"><span class="sheet-tag">Map · {E(place)}</span>{box}'
             f'<figcaption class="map-cap"><span>{E(note)}</span>{gmaps_link(query)}</figcaption></figure>')
 
 
 def wide_map(ctx, note):
     """Home page: the cities we serve (left) and the line map (right) in a row, then a full-width
-    map. Live builds embed Google Maps; the preview shows the Google-styled render at its natural
-    scale, cropped to the screen around the pins."""
+    Google-styled map at its natural scale, cropped to the screen around the pins. Preview and live
+    builds show the same map; without a render, live builds embed Google's map instead."""
     place, query = "Collin County, TX", "Collin County, Texas"
     panels = (f'<div class="wrap map-panels"><div class="map-areas"><span class="code">Cities we serve</span>{areas_chips(ctx)}</div>'
               f'<div class="map-key">{coverage_svg(ctx, key=True)}</div></div>')
-    if not PREVIEW:
-        canvas = gmap_frame(query, 10, place)
-    elif has_static_map("collin-county-wide"):
+    if has_static_map("collin-county-wide"):
         canvas = f'<div class="map-stage">{map_layers(ctx, "collin-county-wide", place, framed=False)}</div>{MAP_CREDIT}'
+    elif not PREVIEW:
+        canvas = gmap_frame(query, 10, place)
     else:
         canvas = f'<div class="map-fallback">{coverage_svg(ctx)}</div>'
     return (f'{panels}<div class="map-canvas">{canvas}</div>'
@@ -488,9 +509,9 @@ def hero_media(ctx):
     return (f'<figure class="sheet-frame vid-frame"><span class="sheet-tag">{E(v["tag"])}</span>'
             f'<button class="vid-btn" type="button" hidden>{IC["pause"]}{IC["play"]}<span class="vid-lbl">Pause</span><span class="sr-only"> video</span></button>'
             f'<div class="vid-box"><video class="js-vid" muted loop playsinline preload="metadata" '
-            f'poster="{href(ctx, "assets/media/" + v["poster"])}" aria-describedby="vid-desc">'
-            f'<source src="{href(ctx, "assets/media/" + v["mp4"])}" type="video/mp4">'
-            + (f'<source src="{href(ctx, "assets/media/" + v["webm"])}" type="video/webm">' if os.path.exists(os.path.join(MEDIA, v.get("webm", "-"))) else "")
+            f'poster="{asset(ctx, "assets/media/" + v["poster"])}" aria-describedby="vid-desc">'
+            f'<source src="{asset(ctx, "assets/media/" + v["mp4"])}" type="video/mp4">'
+            + (f'<source src="{asset(ctx, "assets/media/" + v["webm"])}" type="video/webm">' if os.path.exists(os.path.join(MEDIA, v.get("webm", "-"))) else "")
             + '</video></div>'
             f'<figcaption id="vid-desc" class="sr-only">{E(v["desc"])} {said}</figcaption></figure>')
 
@@ -544,8 +565,8 @@ def _process_photo(src, key, meta):
 def picture(ctx, p, sizes):
     base = "assets/photos/" + p["slug"]
     def srcset(ext):
-        return ", ".join(f'{href(ctx, f"{base}-{w}.{ext}")} {w}w' for w in p["widths"])
-    w, small = p["widths"][-1], href(ctx, f"{base}-{p['widths'][0]}.jpg")
+        return ", ".join(f'{asset(ctx, f"{base}-{w}.{ext}")} {w}w' for w in p["widths"])
+    w, small = p["widths"][-1], asset(ctx, f"{base}-{p['widths'][0]}.jpg")
     return (f'<picture><source type="image/webp" srcset="{srcset("webp")}" sizes="{sizes}">'
             f'<img src="{small}" srcset="{srcset("jpg")}" sizes="{sizes}" '
             f'width="{w}" height="{round(w * p["ratio"])}" alt="{A(p["alt"])}" loading="lazy" decoding="async"></picture>')
@@ -1163,8 +1184,14 @@ def main():
     if os.path.isdir(OUT):
         shutil.rmtree(OUT)
     os.makedirs(OUT)
-    shutil.copytree(os.path.join(ROOT, "static", "assets"), os.path.join(OUT, "assets"),
-                    ignore=None if PREVIEW else shutil.ignore_patterns("maps"))     # live pages embed Google Maps
+    shutil.copytree(os.path.join(ROOT, "static", "assets"), os.path.join(OUT, "assets"))
+    with open(os.path.join(OUT, "favicon.svg"), "w") as f:
+        f.write(favicon())
+    css = os.path.join(OUT, "assets", "site.css")      # fonts referenced from the stylesheet get hashes too
+    with open(css, encoding="utf-8") as f:
+        text = re.sub(r"url\((fonts/[^)?]+)\)", lambda m: f"url({m.group(1)}?v={version('assets/' + m.group(1))})", f.read())
+    with open(css, "w", encoding="utf-8", newline="\n") as f:
+        f.write(text)
     build_home()
     build_services_index()
     for s in SILOS:
@@ -1185,8 +1212,6 @@ def main():
         for name, text in (("sitemap.xml", sitemap()), ("robots.txt", robots()), ("vercel.json", vercel())):
             with open(os.path.join(OUT, name), "w") as f:
                 f.write(text)
-    with open(os.path.join(OUT, "favicon.svg"), "w") as f:
-        f.write(favicon())
     print(f"{'preview' if PREVIEW else 'production'} build: {len(PAGES)} pages -> {OUT}")
 
 

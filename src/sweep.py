@@ -12,7 +12,7 @@ class Q(http.server.SimpleHTTPRequestHandler):
 socketserver.TCPServer.allow_reuse_address = True
 srv = socketserver.ThreadingTCPServer(("127.0.0.1", 0), functools.partial(Q, directory=os.path.join(ROOT, BUILD)))
 port = srv.server_address[1]; threading.Thread(target=srv.serve_forever, daemon=True).start()
-pages = sorted(os.path.relpath(os.path.join(d, f), os.path.join(ROOT, BUILD)).replace("index.html", "")
+pages = sorted(os.path.relpath(os.path.join(d, f), os.path.join(ROOT, BUILD)).replace(os.sep, "/").replace("index.html", "")
                for d, _, fs in os.walk(os.path.join(ROOT, BUILD)) for f in fs if f.endswith(".html") and f != "404.html")
 CHECK = """() => { const W = innerWidth, bad = [];
   const scrollers = [...document.querySelectorAll('*')].filter(e => { const s = getComputedStyle(e); return /auto|scroll|hidden/.test(s.overflowX) && e !== document.documentElement && e !== document.body; });
