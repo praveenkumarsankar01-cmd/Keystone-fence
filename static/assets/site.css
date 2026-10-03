@@ -803,3 +803,52 @@ figure{margin:0}
 
 .nowrap{white-space:nowrap}
 @media(max-width:360px){.ftr .ftr-mail{font-size:14px}}
+
+/* ── bigger hero video ──────────────────────────────────────────── */
+@media(min-width:1181px){
+  .hero .hero-grid{grid-template-columns:minmax(0,3.75fr) minmax(0,6.25fr);gap:48px}
+  .hero h1{font-size:clamp(2.6rem,5.6vw,4.3rem)}
+}
+@media(max-width:620px){.hero .vid-frame{margin-inline:calc(var(--gutter) * -1 + 4px);padding:32px 6px 6px}}
+
+/* ── real map with the line map as its key ──────────────────────── */
+.map-duo{position:relative}
+.map-key{position:absolute;z-index:3;top:10px;left:10px;width:44%;padding:6px;background:var(--sheet);
+  border:1px solid var(--rule-2);box-shadow:0 2px 10px rgba(22,25,27,.12)}
+.map-key svg{display:block;width:100%;height:auto}
+.cv-key .cv-lbl{font-size:27px;letter-spacing:.03em}
+.cv-key .cv-sub{font-size:19px;letter-spacing:.05em}
+.cv-key .cv-road{stroke-width:2.2}
+.cv-key .cv-ring{stroke-width:2;stroke-dasharray:7 6}
+.map-real picture,.map-real img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.map-real img{object-fit:cover}
+.map-ring{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.map-ring circle{fill:rgba(160,85,42,.05);stroke:var(--cedar);stroke-width:2;stroke-dasharray:8 6}
+.map-ring text{font:600 15px var(--mono);letter-spacing:.12em;fill:var(--cedar-deep);text-anchor:middle;
+  paint-order:stroke;stroke:var(--sheet);stroke-width:4px}
+.map-pins{list-style:none;margin:0;padding:0}
+.pin{position:absolute;width:0;height:0}
+.pin::before{content:"";position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;
+  background:var(--steel);box-shadow:0 0 0 2px var(--sheet)}
+.pin > a,.pin > span{position:absolute;left:11px;top:0;transform:translateY(-50%);white-space:nowrap;padding:3px 7px 2px;
+  background:var(--sheet);border:1px solid var(--steel);font:600 10.5px/1.2 var(--mono);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--steel);text-decoration:none}
+.pin > a:hover,.pin > a:focus-visible{background:var(--steel);color:var(--sheet)}
+.pin.flip > a,.pin.flip > span{left:auto;right:11px}
+.pin.home::before{background:var(--cedar)}
+.pin.home > a{border-color:var(--cedar);color:var(--cedar-deep)}
+.pin.cur::before{left:-8px;top:-8px;width:16px;height:16px;background:var(--cedar);box-shadow:0 0 0 3px var(--sheet),0 0 0 5px var(--cedar)}
+.pin.cur > span{left:14px;background:var(--cedar);border-color:var(--cedar);color:var(--sheet)}
+.pin.cur.flip > span{left:auto;right:14px}
+.map-key ~ .map-box .pin.under-key{display:none}
+.map-attr{position:absolute;right:0;bottom:0;z-index:2;padding:2px 6px;background:rgba(250,250,247,.88);
+  font:500 9.5px/1.3 var(--mono);color:var(--graphite);text-decoration:none}
+.map-attr:hover{color:var(--steel);text-decoration:underline}
+@media(max-width:620px){
+  .map-key{position:static;width:auto;margin-bottom:10px;box-shadow:none}
+  .map-key ~ .map-box .pin.under-key{display:block}
+  .pin > a,.pin > span{font-size:9.5px;padding:2px 5px 1px}
+}
+
+/* ── trade cards with a photo ───────────────────────────────────── */
+.silo-card .card-art.has-photo{aspect-ratio:16/9;padding:0}

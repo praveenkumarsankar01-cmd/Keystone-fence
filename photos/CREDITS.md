@@ -14,12 +14,17 @@ serves.
 
 | File | Source | Author | Licence | Notes |
 | --- | --- | --- | --- | --- |
-| `static/assets/media/site-walk.{mp4,webm,webp}` | [Man Opening the Gate for a Couple](https://www.pexels.com/video/man-opening-the-gate-for-a-couple-7577936/) | Kindel Media | Pexels License | 1920x1080 file trimmed to 0.5–12.5 s, cropped and scaled to 1280x720, audio removed (`src/ingest_video.py --start 0.5 --dur 12 --maxrate 1900`) |
+| `static/assets/media/site-walk.{mp4,webm,webp}` | [Man Opening the Gate for a Couple](https://www.pexels.com/video/man-opening-the-gate-for-a-couple-7577936/) | Kindel Media | Pexels License | 1920x1080 file trimmed to 0.5–11.25 s (the people stay in frame the whole loop), cropped and scaled to 1280x720, audio removed (`src/ingest_video.py --start 0.5 --dur 10.75 --maxrate 1900`) |
 
 ## Photos
 
 | File | Source | Author | Licence | Notes |
 | --- | --- | --- | --- | --- |
+| `cards/fencing/backyard-privacy-fence.jpg` | [pexels.com/photo/11903184](https://www.pexels.com/photo/wooden-shed-on-a-backyard-11903184/) | Shazard R. | Pexels License | |
+| `cards/gates/wood-double-gate.jpg` | [pexels.com/photo/38472754](https://www.pexels.com/photo/charming-rustic-house-behind-wooden-gate-38472754/) | Leandro Rossi | Pexels License | |
+| `cards/decks/wood-deck-railing.jpg` | [pexels.com/photo/10847167](https://www.pexels.com/photo/brown-wooden-patio-10847167/) | Đỗ Huy Hoàng | Pexels License | |
+| `cards/repair/fixing-wood-fence.jpg` | [pexels.com/photo/8447789](https://www.pexels.com/photo/woman-fixing-wooden-fence-8447789/) | Los Muertos Crew | Pexels License | |
+| `cards/land-clearing/dozer-clearing-field.jpg` | [pexels.com/photo/9577586](https://www.pexels.com/photo/yellow-and-black-heavy-equipment-on-brown-field-9577586/) | Udaya Jayasiri Gunawardhana | Pexels License | Same photo as `land-clearing/1-dozer-cleared-field.jpg` |
 | `gates/1-cedar-patio-gate.jpg` | [pexels.com/photo/922797](https://www.pexels.com/photo/photo-of-opened-brown-wooden-sliding-house-gate-922797/) | Gerritt Tisdale | Pexels License | |
 | `gates/2-stained-double-gate.jpg` | [pexels.com/photo/18900649](https://www.pexels.com/photo/closed-wooden-fence-18900649/) | Gene Samit | Pexels License | |
 | `gates/3-arched-entry-gate.jpg` | [pexels.com/photo/12274276](https://www.pexels.com/photo/front-view-of-a-bungalow-with-wooden-fence-12274276/) | Robert So | Pexels License | |
@@ -40,3 +45,11 @@ serves.
 | `projects/L-04/pipe-fence-pasture.jpg` | [pexels.com/photo/36674981](https://www.pexels.com/photo/brown-horse-in-sunnyvale-texas-pasture-36674981/) | Gavin Young | Pexels License | |
 | `projects/L-05/track-loader-woods.jpg` | [pexels.com/photo/33941336](https://www.pexels.com/photo/bulldozer-in-autumn-forest-clearing-harbor-springs-33941336/) | Ryan Latimer | Pexels License | A contractor decal naming a third-party company is blurred |
 | `projects/L-06/backyard-regrade.jpg` | [pexels.com/photo/33404224](https://www.pexels.com/photo/backyard-patio-construction-in-texas-home-33404224/) | Ryan Stephens | Pexels License | |
+
+## Maps
+
+`static/assets/maps/*.{webp,jpg}` (the preview build's street maps) are rendered by
+`src/static_maps.py` from [OpenStreetMap](https://www.openstreetmap.org) tiles. Map data
+© OpenStreetMap contributors, available under the
+[Open Database License](https://www.openstreetmap.org/copyright); each map carries that credit
+and links to the copyright page. The pins and the key map are drawn by the build.

@@ -127,6 +127,7 @@ CITIES = [
       nearby=["richardson", "allen", "frisco"],
       faqs=[("Do you work in all of Plano?", "Yes, from east Plano to Legacy and everywhere between."), ("Can you replace a fence along my alley?", "Yes — alley fence replacement is one of our most common Plano jobs."), ("How soon can you visit for an estimate?", "Plano is our home base, so estimate visits are usually scheduled within a few days.")],
       zoom=11,
+      ll=(33.0137, -96.6925),     # lat, lon of the OpenStreetMap place node (map pins)
       xy=(300, 250)),
     dict(slug="frisco", name="Frisco", county="Collin & Denton Counties",
       title="Fence & Deck Contractor in Frisco, TX | Keystone Fence & Deck",
@@ -142,6 +143,7 @@ CITIES = [
       nearby=["prosper", "plano", "mckinney"],
       faqs=[("Will you meet my HOA's fence requirements?", "Yes. We work from your HOA guidelines and supply specs for approval."), ("Do you replace builder-installed fences?", "Often — usually with cedar pickets on galvanized steel posts."), ("Do you build pool fences in Frisco?", "Yes, to the barrier requirements the city enforces.")],
       zoom=11,
+      ll=(33.1506, -96.8238),
       xy=(170, 170)),
     dict(slug="mckinney", name="McKinney", county="Collin County",
       title="Fence & Deck Contractor in McKinney, TX | Keystone Fence & Deck",
@@ -157,6 +159,7 @@ CITIES = [
       nearby=["allen", "frisco", "prosper"],
       faqs=[("Can you build a fence in McKinney's historic district?", "Yes. Design review may apply, and we help you pick a style that fits before you apply."), ("Do you install ranch fencing around McKinney?", "Yes — pipe and ranch fencing with braced corners for acreage."), ("Do you automate driveway gates?", "Yes, swing and slide operators with safety devices.")],
       zoom=11,
+      ll=(33.1976, -96.6154),
       xy=(395, 125)),
     dict(slug="allen", name="Allen", county="Collin County",
       title="Fence & Deck Contractor in Allen, TX | Keystone Fence & Deck",
@@ -172,6 +175,7 @@ CITIES = [
       nearby=["plano", "mckinney", "richardson"],
       faqs=[("Can you quote a shared fence for my neighbor and me?", "Yes — one scope for the shared run so each household sees the same thing."), ("Should I repair or replace my original fence?", "If the posts are the problem and the pickets are sound, re-posting can save money. We'll tell you honestly."), ("Do you stain fences in Allen?", "Yes, in HOA-approved colors.")],
       zoom=12,
+      ll=(33.1032, -96.6706),
       xy=(360, 195)),
     dict(slug="richardson", name="Richardson", county="Dallas & Collin Counties",
       title="Fence & Deck Contractor in Richardson, TX | Keystone Fence & Deck",
@@ -187,6 +191,7 @@ CITIES = [
       nearby=["plano", "allen"],
       faqs=[("Can you build a fence near a large tree?", "Yes. We hand-dig near roots and adjust post spacing to avoid cutting major roots."), ("Do you repair fences hit by falling limbs?", "Yes, and we coordinate with tree services for large limbs."), ("Do you replace alley fences?", "Yes, regularly.")],
       zoom=12,
+      ll=(32.9482, -96.7297),
       xy=(330, 320)),
     dict(slug="prosper", name="Prosper", county="Collin & Denton Counties",
       title="Fence & Deck Contractor in Prosper, TX | Keystone Fence & Deck",
@@ -202,6 +207,7 @@ CITIES = [
       nearby=["frisco", "mckinney"],
       faqs=[("Can you install a fence soon after closing?", "Yes — we schedule around your builder's final grading and your HOA approval."), ("Do you install solar gate openers?", "Yes, useful on long drives where running power is costly."), ("Do you build fences on acreage?", "Yes, pipe and ranch fencing with braced corners.")],
       zoom=12,
+      ll=(33.2372, -96.7977),
       xy=(200, 75)),
 ]
 

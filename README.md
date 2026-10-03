@@ -34,7 +34,9 @@ Deploy on Vercel from this repo: `vercel.json` builds with `python3 src/build.py
   swaps in real footage (trimmed, 1280x720, audio removed).
 - **Photos** — drop images into `photos/<key>/` (see `photos/README.txt`). The build rotates
   them upright, strips all metadata (GPS included) and writes 800/1600 px WebP + JPEG.
-- **Maps** — live builds embed Google Maps (keyless); the preview build shows a schematic.
+- **Maps** — every map carries the line map of the service area as a key in its top-left corner
+  (stacked above it on phones). Live builds embed Google Maps (keyless); the preview build shows
+  street maps rendered once from OpenStreetMap by `python3 src/static_maps.py`, with the cities pinned.
 
 ## Checks
 
