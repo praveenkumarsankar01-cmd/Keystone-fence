@@ -25,8 +25,9 @@ Edit `CONFIG` in `src/data_site.py`:
 - `ga4_id`, `gsc_verification` — optional analytics / Search Console
 - `index=True` and `fictional=False` — and remove the `X-Robots-Tag` header from `vercel.json`
 
-Deploy on Vercel from this repo: `vercel.json` installs `requirements.txt` (Pillow, for the photos), builds
-with `python3 src/build.py` and serves `dist/`.
+Deploy on Vercel from this repo: `vercel.json` installs `requirements.txt` (Pillow, for the photos) into
+`.pydeps/` (an install into the build image's own Python is refused), builds with
+`PYTHONPATH=.pydeps python3 src/build.py` and serves `dist/`.
 
 ## Media
 

@@ -1,6 +1,6 @@
 {
-  "installCommand": "python3 -m pip install -r requirements.txt || pip3 install --user -r requirements.txt",
-  "buildCommand": "python3 src/build.py",
+  "installCommand": "python3 -m pip install --target .pydeps -r requirements.txt || uv pip install --target .pydeps -r requirements.txt || (python3 -m ensurepip --user && python3 -m pip install --target .pydeps -r requirements.txt)",
+  "buildCommand": "PYTHONPATH=.pydeps python3 src/build.py",
   "outputDirectory": "dist",
   "trailingSlash": true,
   "headers": [
