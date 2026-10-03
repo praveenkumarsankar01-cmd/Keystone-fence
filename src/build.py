@@ -397,21 +397,20 @@ def coverage_svg(ctx, current=None, key=False):
 
 
 def map_layers(ctx, map_id, place, current=None, framed=True):
-    """Static OpenStreetMap render (src/static_maps.py) with the service cities pinned on top.
+    """Google-styled map render (src/static_maps.py) with the service cities on red pins.
     On framed maps the key covers the top-right corner: pins under it hide on wide screens
     and labels beside it point left."""
     base = "assets/maps/" + map_id
     w, h = static_maps.size(map_id)
     pins = []
-    for c in CITIES:
-        fx, fy = static_maps.project(map_id, *c["ll"])
-        if not (0.03 < fx < 0.97 and 0.04 < fy < 0.96):
-            continue
-        flip = fx > (0.74 if framed else 0.56) or (framed and fy < 0.52 and fx > 0.34)
+    for c, fx, fy in static_maps.pinned(map_id):
+        flip = fx > (0.74 if framed else 0.56) or (framed and fy < 0.52 and fx > 0.34) \
+            or (not framed and c["slug"] == "plano")     # clear of Murphy's label on the wide map
         cls = ["pin"] + (["home"] if c["slug"] == "plano" else []) + (["cur"] if c["slug"] == current else []) \
             + (["flip"] if flip else []) + (["under-key"] if framed and fx > 0.52 and fy < 0.5 else [])
-        label = (f'<span>{E(c["name"])}</span>' if c["slug"] == current
-                 else f'<a href="{href(ctx, "service-areas/" + c["slug"] + "/")}">{E(c["name"])}</a>')
+        name = E(c["name"]) + ("<small>Home base</small>" if c["slug"] == "plano" else "")
+        label = (f'<span>{name}</span>' if c["slug"] == current
+                 else f'<a href="{href(ctx, "service-areas/" + c["slug"] + "/")}">{name}</a>')
         pins.append(f'<li class="{" ".join(cls)}" style="left:{fx * 100:.1f}%;top:{fy * 100:.1f}%">{label}</li>')
     ring = ""
     if map_id.startswith("collin-county"):     # 10-mile ring around home base
@@ -424,7 +423,9 @@ def map_layers(ctx, map_id, place, current=None, framed=True):
             f'<ul class="map-pins" aria-label="Service cities">{"".join(pins)}</ul>')
 
 
-OSM_CREDIT = '<a class="map-attr" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>'
+MAP_CREDIT = ('<span class="map-attr"><a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> '
+              '<a href="https://www.openmaptiles.org/" target="_blank" rel="noopener">© OpenMapTiles</a> '
+              '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a></span>')
 
 
 def gmaps_link(query):
@@ -445,13 +446,13 @@ def has_static_map(map_id):
 def gmap(ctx, query, zoom, place, note, current=None):
     """Real map of a place with the line map as a key in its top-right corner (above it on phones).
     Live builds embed Google's keyless map (lazy-loaded); the artifact preview can't load
-    third-party frames, so it shows a static OpenStreetMap render with the cities pinned."""
+    third-party frames, so it shows a Google-styled render with the cities pinned."""
     map_id = current or "collin-county"
     if PREVIEW and not has_static_map(map_id):
         box = (f'<div class="map-box map-fallback">{coverage_svg(ctx, current)}</div>'
                f'<p class="map-note">Preview: schematic shown · the live Google Map of {E(place)} loads here on the published site</p>')
     else:
-        real = (f'<div class="map-box map-real">{map_layers(ctx, map_id, place, current)}{OSM_CREDIT}</div>' if PREVIEW
+        real = (f'<div class="map-box map-real">{map_layers(ctx, map_id, place, current)}{MAP_CREDIT}</div>' if PREVIEW
                 else f'<div class="map-box">{gmap_frame(query, zoom, place)}</div>')
         box = f'<div class="map-duo"><div class="map-key">{coverage_svg(ctx, current, key=True)}</div>{real}</div>'
     return (f'<figure class="sheet-frame map-frame"><span class="sheet-tag">Map · {E(place)}</span>{box}'
@@ -459,15 +460,19 @@ def gmap(ctx, query, zoom, place, note, current=None):
 
 
 def wide_map(ctx, note):
-    """Full-width Collin County map for the home page: the cities we serve on a card at the left,
-    the line map as a key at the top right. Below 960 px both stack above the map. Every build
-    uses the static render here, since the cards would cover Google's own place card."""
+    """Home page: the cities we serve (left) and the line map (right) in a row, then a full-width
+    map. Live builds embed Google Maps; the preview shows the Google-styled render at its natural
+    scale, cropped to the screen around the pins."""
     place, query = "Collin County, TX", "Collin County, Texas"
-    if not has_static_map("collin-county-wide"):
-        return f'<div class="wrap">{areas_chips(ctx)}<div style="margin-top:28px">{gmap(ctx, query, 10, place, note)}</div></div>'
-    canvas = f'<div class="map-stage">{map_layers(ctx, "collin-county-wide", place, framed=False)}</div>{OSM_CREDIT}'
-    return (f'<div class="map-wide"><div class="map-areas"><span class="code">Cities we serve</span>{areas_chips(ctx)}</div>'
-            f'<div class="map-key">{coverage_svg(ctx, key=True)}</div><div class="map-canvas">{canvas}</div></div>'
+    panels = (f'<div class="wrap map-panels"><div class="map-areas"><span class="code">Cities we serve</span>{areas_chips(ctx)}</div>'
+              f'<div class="map-key">{coverage_svg(ctx, key=True)}</div></div>')
+    if not PREVIEW:
+        canvas = gmap_frame(query, 10, place)
+    elif has_static_map("collin-county-wide"):
+        canvas = f'<div class="map-stage">{map_layers(ctx, "collin-county-wide", place, framed=False)}</div>{MAP_CREDIT}'
+    else:
+        canvas = f'<div class="map-fallback">{coverage_svg(ctx)}</div>'
+    return (f'{panels}<div class="map-canvas">{canvas}</div>'
             f'<div class="wrap map-cap map-foot"><span>{E(note)}</span>{gmaps_link(query)}</div>')
 
 
@@ -1154,18 +1159,12 @@ def vercel():
     return json.dumps(cfg, indent=2) + "\n"
 
 
-def _live_maps_only(folder, names):
-    """Live pages embed Google Maps except the home page's wide map, so only that render ships."""
-    if PREVIEW or os.path.basename(folder) != "maps":
-        return []
-    return [n for n in names if not n.startswith("collin-county-wide.")]
-
-
 def main():
     if os.path.isdir(OUT):
         shutil.rmtree(OUT)
     os.makedirs(OUT)
-    shutil.copytree(os.path.join(ROOT, "static", "assets"), os.path.join(OUT, "assets"), ignore=_live_maps_only)
+    shutil.copytree(os.path.join(ROOT, "static", "assets"), os.path.join(OUT, "assets"),
+                    ignore=None if PREVIEW else shutil.ignore_patterns("maps"))     # live pages embed Google Maps
     build_home()
     build_services_index()
     for s in SILOS:

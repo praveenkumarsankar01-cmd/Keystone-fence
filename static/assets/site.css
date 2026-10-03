@@ -776,7 +776,7 @@ figure{margin:0}
 /* ── maps ───────────────────────────────────────────────────────── */
 .map-frame{padding-top:34px;margin:0}
 .map-box{position:relative;aspect-ratio:4/3;background:var(--sheet-2);overflow:hidden;border:1px solid var(--rule)}
-.map-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;filter:grayscale(.2) contrast(1.02)}
+.map-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
 .map-fallback{background:var(--sheet)}
 .map-fallback svg{width:100%;height:100%;display:block}
 .map-note{margin:10px 0 0;padding:8px 10px;background:var(--sheet-2);border:1px dashed var(--rule-2);
@@ -820,62 +820,62 @@ figure{margin:0}
 .cv-key .cv-sub{font-size:19px;letter-spacing:.05em}
 .cv-key .cv-road{stroke-width:2.2}
 .cv-key .cv-ring{stroke-width:2;stroke-dasharray:7 6}
-.map-real picture,.map-real img,.map-stage picture,.map-stage img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.map-real picture,.map-real img{position:absolute;inset:0;width:100%;height:100%;display:block}
 .map-real img{object-fit:cover}
 .map-ring{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.map-ring circle{fill:rgba(160,85,42,.05);stroke:var(--cedar);stroke-width:2;stroke-dasharray:8 6}
+.map-ring circle{fill:none;stroke:var(--cedar);stroke-width:2;stroke-dasharray:8 6}
 .map-ring text{font:600 15px var(--mono);letter-spacing:.12em;fill:var(--cedar-deep);text-anchor:middle;
   paint-order:stroke;stroke:var(--sheet);stroke-width:4px}
 .map-pins{list-style:none;margin:0;padding:0}
-.pin{position:absolute;width:0;height:0}
-.pin::before{content:"";position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;
-  background:var(--steel);box-shadow:0 0 0 2px var(--sheet)}
-.pin > a,.pin > span{position:absolute;left:11px;top:0;transform:translateY(-50%);white-space:nowrap;padding:3px 7px 2px;
-  background:var(--sheet);border:1px solid var(--steel);font:600 10.5px/1.2 var(--mono);letter-spacing:.08em;
-  text-transform:uppercase;color:var(--steel);text-decoration:none}
-.pin > a:hover,.pin > a:focus-visible{background:var(--steel);color:var(--sheet)}
-.pin.flip > a,.pin.flip > span{left:auto;right:11px}
-.pin.home::before{background:var(--cedar)}
-.pin.home > a{border-color:var(--cedar);color:var(--cedar-deep)}
-.pin.cur::before{left:-8px;top:-8px;width:16px;height:16px;background:var(--cedar);box-shadow:0 0 0 3px var(--sheet),0 0 0 5px var(--cedar)}
-.pin.cur > span{left:14px;background:var(--cedar);border-color:var(--cedar);color:var(--sheet)}
-.pin.cur.flip > span{left:auto;right:14px}
+/* Google-style pins: a red teardrop whose tip sits on the point, red label with a white halo */
+.pin{position:absolute;width:0;height:0;--s:20px;--lift:14px}
+.pin.home{--s:24px;--lift:17px}
+.pin.cur{--s:28px;--lift:20px}
+.pin::before{content:"";position:absolute;left:calc(var(--s) / -2);top:calc(var(--lift) * -1 - var(--s) / 2);width:var(--s);height:var(--s);
+  background:#ea4335;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:-1px 1px 3px rgba(60,64,67,.4)}
+.pin::after{content:"";position:absolute;left:calc(var(--s) * -.18);top:calc(var(--lift) * -1 - var(--s) * .18);width:calc(var(--s) * .36);height:calc(var(--s) * .36);
+  border-radius:50%;background:#b31412}
+.pin > a,.pin > span{position:absolute;left:calc(var(--s) / 2 + 4px);top:calc(var(--lift) * -1);transform:translateY(-50%);white-space:nowrap;
+  font:600 14px/1.15 var(--text);color:#c5221f;text-decoration:none;
+  text-shadow:0 0 2px #fff,0 0 2px #fff,0 0 3px #fff,1px 1px 0 #fff,-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff}
+.pin small{display:block;font:500 10px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#5f6368}
+.pin > a:hover,.pin > a:focus-visible{text-decoration:underline}
+.pin.flip > a,.pin.flip > span{left:auto;right:calc(var(--s) / 2 + 4px);text-align:right}
+.pin.home > a,.pin.cur > span{font-weight:700}
+.pin.cur > span{font-size:15px}
 .map-key ~ .map-box .pin.under-key{display:none}
-.map-attr{position:absolute;right:0;bottom:0;z-index:2;padding:2px 6px;background:rgba(250,250,247,.88);
-  font:500 9.5px/1.3 var(--mono);color:var(--graphite);text-decoration:none}
-.map-attr:hover{color:var(--steel);text-decoration:underline}
+.map-attr{position:absolute;right:0;bottom:0;z-index:2;padding:2px 6px;background:rgba(255,255,255,.85);
+  font:400 10px/1.3 var(--text);color:#5f6368}
+.map-attr a{color:inherit;text-decoration:none}
+.map-attr a:hover{color:#202124;text-decoration:underline}
 @media(max-width:620px){
   .map-key{position:static;width:auto;margin-bottom:10px;box-shadow:none}
   .map-key ~ .map-box .pin.under-key{display:block}
-  .pin > a,.pin > span{font-size:9.5px;padding:2px 5px 1px}
+  .map-real .pin > a,.map-real .pin > span{font-size:12px}
 }
 
-/* ── full-width map (home) ───────────────────────────────────────── */
+/* ── home: cities and line map in a row, then a full-width map ───── */
 .map-sec{padding-bottom:clamp(40px,5vw,64px)}
-.map-wide{--mh:clamp(460px,46vw,680px);--edge:max(var(--gutter),calc((100% - var(--wrap)) / 2 + var(--gutter)));position:relative}
-.map-canvas{position:relative;height:var(--mh);overflow:hidden;background:var(--sheet-2);border-block:1px solid var(--rule-2)}
-.map-canvas iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;filter:grayscale(.2) contrast(1.02)}
-.map-stage{position:absolute;left:50%;top:50%;width:max(100%,calc(var(--mh) * 2.5));aspect-ratio:5/2;transform:translate(-50%,-50%)}
-.map-wide .map-areas,.map-wide .map-key{position:absolute;z-index:3;top:24px;background:var(--sheet);border:1px solid var(--rule-2);
-  box-shadow:0 6px 22px rgba(22,25,27,.16)}
-.map-wide .map-areas{left:var(--edge);width:min(380px,34%);padding:18px 18px 16px}
-.map-wide .map-key{right:var(--edge);width:min(340px,29%);padding:6px}
-.map-areas > .code{display:block;margin-bottom:12px}
-.map-areas .chips{gap:6px}
-.map-areas .chips a,.map-areas .chips span{min-height:34px;padding:0 10px;font-size:14px;gap:6px}
-.map-areas .help{margin:12px 0 6px !important;font-size:13px}
+.map-panels{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:20px;margin-bottom:28px}
+.map-panels .map-areas,.map-panels .map-key{position:static;width:auto;background:var(--sheet);border:1px solid var(--rule-2);box-shadow:none}
+.map-panels .map-areas{padding:22px 24px;display:flex;flex-direction:column;justify-content:center}
+.map-panels .map-key{padding:8px;margin:0;display:flex;align-items:center}
+.map-areas > .code{display:block;margin-bottom:14px}
+.map-areas .chips{gap:8px}
+.map-areas .help{margin:16px 0 8px !important}
+.map-canvas{--mh:clamp(520px,42vw,600px);position:relative;height:var(--mh);overflow:hidden;background:#f8f8f8;border-block:1px solid var(--rule-2)}
+.map-canvas iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+/* the render is 1500 x 600 px: shown at that size (or larger on wide screens) and cropped
+   to the screen around its centre, where the pins are, so labels never shrink */
+.map-stage{position:absolute;left:50%;top:50%;width:max(100%,1500px);aspect-ratio:5/2;transform:translate(-50%,-50%)}
+.map-stage picture,.map-stage img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.map-canvas > .map-fallback{height:100%;display:flex;justify-content:center}
+.map-canvas > .map-fallback svg{height:100%;width:auto}
 .map-foot{padding-top:14px}
-@media(max-width:960px){
-  .map-wide{--mh:min(92vw,560px)}
-  .map-wide .map-areas,.map-wide .map-key{position:static;width:auto;box-shadow:none}
-  .map-wide .map-areas{margin:0 var(--gutter) 18px;padding:0;border:0;background:none}
-  .map-wide .map-key{margin:0 var(--gutter) 12px}
-}
-@media(min-width:621px) and (max-width:960px){
-  .map-wide{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);column-gap:24px;align-items:start}
-  .map-wide .map-areas{margin:0 0 20px var(--gutter)}
-  .map-wide .map-key{margin:0 var(--gutter) 20px 0}
-  .map-wide .map-canvas{grid-column:1 / -1}
+@media(max-width:860px){.map-panels{grid-template-columns:minmax(0,1fr) minmax(0,300px)}}
+@media(max-width:620px){
+  .map-panels{grid-template-columns:1fr;gap:12px;margin-bottom:20px}
+  .map-panels .map-areas{padding:0;border:0;background:none}
 }
 
 /* ── trade cards with a photo ───────────────────────────────────── */
