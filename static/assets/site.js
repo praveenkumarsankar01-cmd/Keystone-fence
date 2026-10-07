@@ -170,7 +170,7 @@
         files.push(f);
       });
       render();
-      if (skipped && status) { status.className = 'form-status show error'; status.textContent = skipped + ' file(s) skipped — photos only, up to ' + MAX_FILES + ', 15 MB each.'; }
+      if (skipped && status) { status.className = 'form-status show error'; status.textContent = skipped + ' file(s) skipped: photos only, up to ' + MAX_FILES + ', 15 MB each.'; }
     };
     if (drop) {
       var input = $('input[type=file]', drop);
@@ -227,7 +227,7 @@
           // The endpoint refused the photos (size or plan limit): send the
           // request without them rather than lose the lead.
           fd.delete('attachment');
-          fd.append('photos_note', ready.length + ' photo(s) were attached but could not be delivered — ask the customer to text them.');
+          fd.append('photos_note', ready.length + ' photo(s) were attached but could not be delivered. Ask the customer to text them.');
           return post(fd).then(function (r2) {
             if (r2 && r2.success) finish(true, true);
             else throw new Error((r2 && r2.message) || 'rejected');

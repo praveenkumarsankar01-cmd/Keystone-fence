@@ -13,15 +13,15 @@ dict(
   drawing="board_on_board",
   intro=[
     "Most fences in Collin County don't fail because of the boards. They fail at the post, where Blackland Prairie clay swells after a storm and shrinks in August, working a shallow footing loose a little more every season. Everything we install starts from that: galvanized steel posts as standard on wood fences, footings sized to the height, and concrete crowned to shed water.",
-    "Below are the fence types we build most. If you're not sure which suits your yard, HOA or budget, that's what the on-site estimate is for — we walk the line, look at grade and drainage, and give you the options side by side in writing.",
+    "Below are the fence types we build most. If you're not sure which suits your yard, HOA or budget, that's what the on-site estimate is for: we walk the line, look at grade and drainage, and give you the options side by side in writing.",
   ],
   guide_title="Choosing a fence type",
   guide_cols=["Fence type", "Privacy", "Upkeep", "Typical lifespan", "Best for"],
   guide_rows=[
-    ["Cedar board-on-board", "Full", "Stain every 2–3 years", "15–20 years", "Backyards, HOA neighborhoods"],
-    ["Horizontal slat", "Full or partial", "Stain every 2–3 years", "15–20 years", "Modern homes, front-yard screens"],
+    ["Cedar board-on-board", "Full", "Stain every 2-3 years", "15-20 years", "Backyards, HOA neighborhoods"],
+    ["Horizontal slat", "Full or partial", "Stain every 2-3 years", "15-20 years", "Modern homes, front-yard screens"],
     ["Ornamental steel", "Open", "Touch-up only", "25+ years", "Front yards, pools, sloped lots"],
-    ["Pipe & ranch", "Open", "Paint every 5–7 years", "30+ years", "Acreage, livestock, long runs"],
+    ["Pipe & ranch", "Open", "Paint every 5-7 years", "30+ years", "Acreage, livestock, long runs"],
     ["Chain link", "Open", "Minimal", "20+ years", "Commercial, utility, long runs"],
   ],
   guide_note="Lifespans are typical ranges for North Texas conditions with normal maintenance, not guarantees.",
@@ -48,11 +48,11 @@ dict(
       card="Board-on-board, side-by-side and shadowbox cedar on steel posts.",
       drawing="board_on_board",
       overview=[
-        "A wood privacy fence is the default backyard fence across North Dallas, and for good reason: it blocks sightlines completely, suits almost every HOA, and western red cedar weathers well in Texas heat. Where these fences go wrong is underneath — wood posts rot at grade and shallow footings heave in clay. We build the visible part in cedar and the structural part in steel.",
-        "We install three privacy styles. Board-on-board overlaps boards so no gaps open as the wood dries. Side-by-side is the economical classic. Shadowbox alternates boards on each side of the rails, so the fence looks finished from both yards — useful where neighbors share the cost.",
+        "A wood privacy fence is the default backyard fence across North Dallas, and for good reason: it blocks sightlines completely, suits almost every HOA, and western red cedar weathers well in Texas heat. Where these fences go wrong is underneath: wood posts rot at grade and shallow footings heave in clay. We build the visible part in cedar and the structural part in steel.",
+        "We install three privacy styles. Board-on-board overlaps boards so no gaps open as the wood dries. Side-by-side is the economical classic. Shadowbox alternates boards on each side of the rails, so the fence looks finished from both yards, useful where neighbors share the cost.",
       ],
       options=[
-        ("Board-on-board", "Overlapping boards in two layers. No see-through gaps as cedar dries — the most requested style in HOA neighborhoods.", "board_on_board"),
+        ("Board-on-board", "Overlapping boards in two layers. No see-through gaps as cedar dries. The most requested style in HOA neighborhoods.", "board_on_board"),
         ("Side-by-side", "Boards butted edge to edge on three rails. The most economical privacy fence, in pine or cedar.", "side_by_side"),
         ("Shadowbox", "Boards alternate across the rails, so both sides look like the good side, and air still moves through.", "shadowbox"),
       ],
@@ -67,7 +67,7 @@ dict(
         ("Removal", "Tearing out and hauling an old fence is its own line item."),
       ],
       faqs=[
-        ("Cedar or pine — which should I choose?", "Cedar resists rot and insects naturally and holds its shape better as it dries, which is why most of our privacy fences are cedar. Pressure-treated pine costs less up front and takes stain well, but it is more prone to warping and checking in Texas heat."),
+        ("Cedar or pine: which should I choose?", "Cedar resists rot and insects naturally and holds its shape better as it dries, which is why most of our privacy fences are cedar. Pressure-treated pine costs less up front and takes stain well, but it is more prone to warping and checking in Texas heat."),
         ("Should I stain a new cedar fence?", "Yes, but not right away. New cedar needs a few weeks to dry before stain soaks in evenly. We'll tell you when it's ready, and we can stain it for you."),
         ("Which side of the fence faces out?", "Most HOAs and many cities want the finished side facing the street or neighbor. Board-on-board and shadowbox look good from both sides, which avoids the question."),
         ("Can you match my neighbor's existing fence?", "Usually. Tell us during the walk and we'll match picket width, height and cap detail as closely as current materials allow."),
@@ -78,7 +78,7 @@ dict(
       h1="Horizontal Slat Fence Installation",
       title="Horizontal Slat Fence Installation in Plano TX | Keystone Fence & Deck",
       meta="Modern horizontal cedar fences on black steel posts. Tight or open slat spacing, privacy screens and front-yard accents across North Dallas. Free estimates.",
-      lede="Modern horizontal cedar on black steel posts — the clean architectural look, engineered so long boards don't sag between posts.",
+      lede="Modern horizontal cedar on black steel posts, the clean architectural look, engineered so long boards don't sag between posts.",
       card="Modern cedar slats on black steel posts, tight or open spacing.",
       drawing="horizontal",
       overview=[
@@ -87,7 +87,7 @@ dict(
       ],
       options=[
         ("Tight-gap privacy", "3/8\" gaps between boards for near-full privacy with a modern profile.", None),
-        ("Open-slat screen", "Wider gaps let light and breeze through — popular for front yards and pool-equipment screens.", None),
+        ("Open-slat screen", "Wider gaps let light and breeze through, popular for front yards and pool-equipment screens.", None),
         ("Mixed-width boards", "Alternating board widths for a more architectural pattern, best on feature walls.", None),
       ],
       included=["Texas811 utility locate", "Black powder-coated steel posts set in concrete", "Smooth-face cedar boards, gap-spaced with spacer blocks", "Concealed top channel to keep boards straight", "Stainless or coated screws on every board", "Cleanup and walk-through"],
@@ -104,7 +104,7 @@ dict(
         ("Do horizontal fences sag?", "They can if posts are too far apart or boards too thin. We keep spans around six feet, upgrade to thicker boards on longer runs, and add a top channel so the boards can't bow."),
         ("Will my HOA allow a horizontal fence?", "More are allowing them, especially in newer neighborhoods, but many still require vertical pickets on perimeter fences. We can supply drawings and specs for your HOA application."),
         ("Are horizontal fences easy to climb?", "The boards act like a ladder, so they are not a good pool barrier. For pools we recommend ornamental steel or aluminum."),
-        ("Can you build a screen for AC units or pool equipment?", "Yes — short freestanding screens are a common small project, and we often add one to a fence job."),
+        ("Can you build a screen for AC units or pool equipment?", "Yes, short freestanding screens are a common small project, and we often add one to a fence job."),
       ],
       related=["fencing/wood-privacy-fence", "decks/pergolas", "repair/fence-staining"]),
 
@@ -112,15 +112,15 @@ dict(
       h1="Wrought Iron & Ornamental Steel Fencing",
       title="Wrought Iron Fence in Plano, TX | Keystone Fence & Deck",
       meta="Ornamental steel and wrought iron fences with powder-coated finishes for front yards, pool barriers and sloped lots across Collin County. Free estimates.",
-      lede="Ornamental steel fencing that defines a property line without hiding the house — powder-coated to hold its finish through Texas sun and storms.",
+      lede="Ornamental steel fencing that defines a property line without hiding the house, powder-coated to hold its finish through Texas sun and storms.",
       card="Powder-coated steel for front yards, pools and sloped lots.",
       drawing="iron",
       overview=[
-        "What most people call wrought iron today is ornamental steel: square pickets and rails welded or riveted into panels and powder-coated black. It's stronger than aluminum, lasts for decades with almost no maintenance, and keeps the view open — which is why it's the usual choice for front yards, pool barriers and lots that back onto greenbelts or ponds.",
+        "What most people call wrought iron today is ornamental steel: square pickets and rails welded or riveted into panels and powder-coated black. It's stronger than aluminum, lasts for decades with almost no maintenance, and keeps the view open, which is why it's the usual choice for front yards, pool barriers and lots that back onto greenbelts or ponds.",
         "We install standard panels where a run is straight and level, and racked or stepped panels where the ground slopes, so the bottom rail follows grade without leaving gaps a dog can slip through. Gates are built to match, on posts sized for the gate's weight.",
       ],
       options=[
-        ("Spear-top pickets", "Pickets rise above the top rail and finish in a spear finial — traditional, and a deterrent to climbing.", "iron"),
+        ("Spear-top pickets", "Pickets rise above the top rail and finish in a spear finial: traditional, and a deterrent to climbing.", "iron"),
         ("Flat-top", "The top rail caps the pickets for a clean, modern line.", None),
         ("Racked panels", "Panels that follow sloped ground instead of stepping, keeping the bottom rail tight to grade.", None),
       ],
@@ -135,7 +135,7 @@ dict(
         ("Finish", "Black is standard; custom colors carry an upcharge."),
       ],
       faqs=[
-        ("Is ornamental steel the same as wrought iron?", "True wrought iron is hand-forged and rarely used now. Modern ornamental fencing is welded steel with a powder-coated finish — it looks the same, costs far less and resists rust better."),
+        ("Is ornamental steel the same as wrought iron?", "True wrought iron is hand-forged and rarely used now. Modern ornamental fencing is welded steel with a powder-coated finish. It looks the same, costs far less and resists rust better."),
         ("Will it rust?", "Powder-coated steel holds up well, but any scratch that reaches bare metal should be touched up to stop rust spreading. We leave matching touch-up paint with every job."),
         ("Can it keep my dog in?", "Yes, with the right picket spacing. Tell us about your dog during the walk and we can tighten spacing or add a bottom section with extra pickets."),
         ("Steel or aluminum?", "Steel is stronger and more rigid; aluminum never rusts and is lighter. We install steel as standard and quote aluminum where corrosion is a concern, such as right beside a pool."),
@@ -146,7 +146,7 @@ dict(
       h1="Pipe & Ranch Fence Installation",
       title="Pipe & Ranch Fence in Collin County, TX | Keystone Fence & Deck",
       meta="Welded pipe fence, pipe-and-cable and ranch fencing with welded wire for acreage, livestock and long property lines across North Texas. Free estimates.",
-      lede="Welded pipe and ranch fencing for acreage on the edges of Collin County — built with braced corners so long runs stay tight for decades.",
+      lede="Welded pipe and ranch fencing for acreage on the edges of Collin County, built with braced corners so long runs stay tight for decades.",
       card="Welded pipe, welded wire and braced corners for acreage.",
       drawing="pipe",
       overview=[
@@ -154,7 +154,7 @@ dict(
         "Every run we build starts at the corners and gates. H-braces carry the tension so line posts don't lean, and posts are set in concrete. Add welded wire or no-climb mesh where you need to hold smaller animals or dogs.",
       ],
       options=[
-        ("Welded pipe rail", "Two to four pipe rails welded to pipe posts — the classic Texas pasture fence and entrance.", "pipe"),
+        ("Welded pipe rail", "Two to four pipe rails welded to pipe posts, the classic Texas pasture fence and entrance.", "pipe"),
         ("Pipe and welded wire", "A pipe frame with welded wire or no-climb mesh for dogs, goats and smaller livestock.", None),
         ("Pipe and cable", "Pipe posts with tensioned steel cable, economical for long pasture runs.", None),
       ],
@@ -172,7 +172,7 @@ dict(
         ("Do I need a survey before fencing acreage?", "If you're not certain where the line is, yes. A fence a few feet onto a neighbor's land is expensive to move. We work from your survey pins and flag the line with you before setting posts."),
         ("Can you clear brush along the fence line?", "Light clearing along the line is part of the job. Heavy brush or tree removal is quoted separately."),
         ("How long does pipe fence last?", "Welded steel pipe fence routinely lasts decades. Painting it every several years keeps rust off the welds and caps."),
-        ("Can you build a ranch-style entrance?", "Yes — an entrance with a welded header and a pipe drive gate is a common project, and we can add an automatic opener."),
+        ("Can you build a ranch-style entrance?", "Yes, an entrance with a welded header and a pipe drive gate is a common project, and we can add an automatic opener."),
       ],
       related=["gates/driveway-gates", "gates/automatic-gate-openers", "repair/fence-removal"]),
 
@@ -180,7 +180,7 @@ dict(
       h1="Pool Fence & Barrier Installation",
       title="Pool Fence & Barrier Installation in Plano, TX | Keystone Fence & Deck",
       meta="Pool barrier fencing with self-closing, self-latching gates built to the requirements your city enforces. Ornamental steel and aluminum. Free estimates.",
-      lede="Pool barriers that pass inspection the first time — the right height, the right openings and gates that close and latch on their own.",
+      lede="Pool barriers that pass inspection the first time: the right height, the right openings and gates that close and latch on their own.",
       card="Code-height barriers with self-closing, self-latching gates.",
       drawing="pool",
       overview=[
@@ -190,7 +190,7 @@ dict(
       options=[
         ("Ornamental steel or aluminum", "Open pickets keep sightlines to the water. Aluminum is preferred right at the pool edge.", "pool"),
         ("Self-closing, self-latching gates", "Spring hinges and a magnetic latch mounted high on the pool side.", None),
-        ("Removable mesh barrier", "Mesh panels that lift out when you want the yard open — good for families with toddlers.", None),
+        ("Removable mesh barrier", "Mesh panels that lift out when you want the yard open, good for families with toddlers.", None),
       ],
       included=["Review of your city's barrier requirements", "Barrier fencing at code height with compliant openings", "Self-closing, self-latching gates with tested hinge tension", "Latch mounted out of a child's reach", "Scheduling around your pool builder", "Final walk-through before your inspection"],
       specs=[("Height", "4'-0\" minimum; 5'-0\" common"), ("Openings", "Under 4\" between pickets"), ("Bottom gap", "Kept tight to grade"), ("Gates", "Outward-swinging, self-closing, self-latching"), ("Latch", "Magnetic, mounted high on the pool side"), ("Material", "Powder-coated aluminum or steel")],
@@ -214,15 +214,15 @@ dict(
       h1="Commercial & Chain Link Fencing",
       title="Commercial & Chain Link Fence, Plano TX | Keystone Fence & Deck",
       meta="Chain link, security and ornamental fencing for commercial properties, HOAs, builders and property managers across Collin County. Free site estimates.",
-      lede="Perimeter, security and screening fences for businesses, HOAs, builders and property managers — scheduled around your site and documented for your records.",
+      lede="Perimeter, security and screening fences for businesses, HOAs, builders and property managers, scheduled around your site and documented for your records.",
       card="Chain link, security and screening for commercial sites and HOAs.",
       drawing="chainlink",
       overview=[
-        "Commercial fencing is less about style and more about schedule, specification and paperwork. We install chain link, security fencing with barbed wire, ornamental steel and screening for offices, retail centers, storage yards, HOA common areas and builder sites — working from your plans and specs, or helping you write them.",
+        "Commercial fencing is less about style and more about schedule, specification and paperwork. We install chain link, security fencing with barbed wire, ornamental steel and screening for offices, retail centers, storage yards, HOA common areas and builder sites, working from your plans and specs, or helping you write them.",
         "For property managers and HOAs we keep it simple: one point of contact, a written scope, certificates of insurance on request and photos at completion. For builders, we phase fence installation to your construction schedule.",
       ],
       options=[
-        ("Chain link", "Galvanized or black vinyl-coated mesh — the most economical secure perimeter.", "chainlink"),
+        ("Chain link", "Galvanized or black vinyl-coated mesh, the most economical secure perimeter.", "chainlink"),
         ("Security fencing", "Taller chain link or ornamental steel with barbed wire or anti-climb mesh.", None),
         ("Privacy screening", "Slats or windscreen fabric added to chain link to hide storage or equipment.", None),
       ],
@@ -255,7 +255,7 @@ dict(
   card="Driveway and walk gates, automatic openers, access control and gate repair.",
   drawing="driveway_gate",
   intro=[
-    "Gates fail for predictable reasons: a frame too light for its width, a post that isn't set deep enough to carry the weight, or an opener sized for a smaller gate. Each ends the same way — a gate that sags, drags and eventually won't latch.",
+    "Gates fail for predictable reasons: a frame too light for its width, a post that isn't set deep enough to carry the weight, or an opener sized for a smaller gate. Each ends the same way: a gate that sags, drags and eventually won't latch.",
     "We design gates from the hinge post out. Walk gates get welded steel frames inside the wood. Drive gates get posts and footings sized for their weight. Automatic gates get an operator rated above the gate, with the safety devices the job needs.",
   ],
   guide_title="Swing, slide or cantilever?",
@@ -275,7 +275,7 @@ dict(
     ("Power and trenching", "Distance from power, or solar."),
   ],
   faqs=[
-    ("Can you automate my existing gate?", "Often, yes. We check the frame, hinges and posts first — automating a gate that already sags just wears out the opener faster."),
+    ("Can you automate my existing gate?", "Often, yes. We check the frame, hinges and posts first. Automating a gate that already sags just wears out the opener faster."),
     ("Do I need electricity at the gate?", "AC power is best for heavy or busy gates. Solar operators work well for lighter gates and long drives where trenching power is costly."),
     ("What happens if the power goes out?", "Every operator we install has a manual release, and battery backup is available so the gate keeps working through an outage."),
     ("Do you repair gates you didn't build?", "Yes. Gate repair is a large part of our work, from sagging wood gates to failed openers."),
@@ -289,13 +289,13 @@ dict(
       card="Swing and slide drive gates in steel, cedar-clad steel and pipe.",
       drawing="driveway_gate",
       overview=[
-        "A driveway gate is usually the largest single piece of a fence project and the one people judge a property by. We build in ornamental steel, cedar over a welded steel frame, and welded pipe for ranch entrances — flat, arched or with a custom top.",
+        "A driveway gate is usually the largest single piece of a fence project and the one people judge a property by. We build in ornamental steel, cedar over a welded steel frame, and welded pipe for ranch entrances, with a flat, arched or custom top.",
         "Every drive gate starts with a measurement of the opening, the slope of the drive and where the gate would swing or slide. That decides whether you need a swing or slide gate, and how big the posts and footings must be to carry it without sagging.",
       ],
       options=[
-        ("Arched ornamental steel", "Double-swing steel gates with an arched top rail — classic for estate and front entrances.", "driveway_gate"),
+        ("Arched ornamental steel", "Double-swing steel gates with an arched top rail, classic for estate and front entrances.", "driveway_gate"),
         ("Cedar-clad steel frame", "Cedar boards on a welded steel frame: the look of your wood fence without the sag of an all-wood gate.", None),
-        ("Single slide gate", "One leaf that rolls along the fence line — ideal for sloped drives and short setbacks.", "slide_gate"),
+        ("Single slide gate", "One leaf that rolls along the fence line, ideal for sloped drives and short setbacks.", "slide_gate"),
       ],
       included=["Measurement of opening, slope and swing clearance", "Steel frame fabricated to the opening", "Hinge posts and footings sized to the gate's weight", "Heavy-duty hinges, drop rod and latch", "Opener-ready prep if you plan to automate later", "Cleanup and an adjustment check"],
       specs=[("Openings", "10'-0\" to 20'-0\" typical"), ("Frame", "2\" square steel tube or pipe"), ("Hinge posts", "4\" to 6\" steel, set in concrete"), ("Infill", "Steel pickets, cedar or pipe"), ("Swing", "Single or double leaf"), ("Finish", "Powder coat or paint")],
@@ -308,9 +308,9 @@ dict(
         ("Automation", "Opener-ready prep now saves money later."),
       ],
       faqs=[
-        ("Swing or slide — which is better?", "Swing gates suit level drives with room for the leaves to open. Slide gates suit sloped drives, short setbacks or places where a swinging leaf would hit cars."),
+        ("Swing or slide: which is better?", "Swing gates suit level drives with room for the leaves to open. Slide gates suit sloped drives, short setbacks or places where a swinging leaf would hit cars."),
         ("Why do wood driveway gates sag?", "Wood alone can't support a wide span. We build drive gates on welded steel frames and clad them in cedar, so you get the look without the sag."),
-        ("Can you match my existing fence?", "Yes — picket style, cedar and stain color, or iron picket and finial patterns."),
+        ("Can you match my existing fence?", "Yes, picket style, cedar and stain color, or iron picket and finial patterns."),
         ("Can the gate be automated later?", "We can build it opener-ready now, with a reinforced frame, mounting plates and conduit, so adding an operator later is simple."),
       ],
       related=["gates/automatic-gate-openers", "gates/access-control", "fencing/wrought-iron-fence"]),
@@ -324,7 +324,7 @@ dict(
       drawing="slide_gate",
       overview=[
         "An automatic gate is a moving machine weighing hundreds of pounds. Installed well, it opens quietly for years. Installed with an undersized operator or without safety devices, it strains, stalls and becomes a hazard. We size every operator above the gate's weight and length, and photo eyes and safety edges are part of the job, not an extra.",
-        "We automate new gates we build and retrofit existing gates — after checking that the frame, hinges and posts can take the load. Power can be AC, solar, or AC with battery backup.",
+        "We automate new gates we build and retrofit existing gates, after checking that the frame, hinges and posts can take the load. Power can be AC, solar, or AC with battery backup.",
       ],
       options=[
         ("Swing gate operators", "Arm or post-mounted operators for single and double swing gates.", None),
@@ -357,7 +357,7 @@ dict(
       card="Cedar-on-steel and ornamental walk gates that don't sag.",
       drawing="walk_gate",
       overview=[
-        "The walk gate gets opened more than any other part of a fence and is usually the first thing to fail. A wood-only gate pulls its hinges loose and sags until the latch no longer lines up. We build cedar walk gates on welded steel frames — invisible from the good side — and hang them on steel posts.",
+        "The walk gate gets opened more than any other part of a fence and is usually the first thing to fail. A wood-only gate pulls its hinges loose and sags until the latch no longer lines up. We build cedar walk gates on welded steel frames, invisible from the good side, and hang them on steel posts.",
         "Need a wider opening for a mower, trailer or pool equipment? We build double gates with a drop rod so you can open the full width when you need it.",
       ],
       options=[
@@ -377,7 +377,7 @@ dict(
       ],
       faqs=[
         ("Can you add a gate to my existing fence?", "Yes. We cut in a new opening, set steel posts and build a gate to match your existing boards and stain as closely as possible."),
-        ("Will the steel frame be visible?", "From the street side, no — the frame sits behind the boards. From inside the yard you'll see a slim black frame."),
+        ("Will the steel frame be visible?", "From the street side, no. The frame sits behind the boards. From inside the yard you'll see a slim black frame."),
         ("Can the gate lock?", "Yes. We install lockable latches, keyed hardware, or a hasp for a padlock."),
         ("How wide should a side-yard gate be?", "At least four feet for a mower and wheelbarrow. If you'll ever need a trailer or equipment through, a double gate is worth it."),
       ],
@@ -387,7 +387,7 @@ dict(
       h1="Gate Access Control & Intercoms",
       title="Gate Keypads & Intercoms in Plano, TX | Keystone Fence & Deck",
       meta="Keypads, intercoms, remotes and phone-app access for residential gates, HOA entrances and commercial properties across Collin County.",
-      lede="Keypads, intercoms and app control for driveways, HOA entrances and commercial gates — so the right people get in without a remote in every car.",
+      lede="Keypads, intercoms and app control for driveways, HOA entrances and commercial gates, so the right people get in without a remote in every car.",
       card="Keypads, intercoms, exit sensors and app control.",
       drawing="access",
       overview=[
@@ -410,7 +410,7 @@ dict(
         ("Existing equipment", "Compatibility with your current operator."),
       ],
       faqs=[
-        ("Can I give a delivery driver a temporary code?", "With most modern keypads and app controllers, yes — you can create a code that expires after a set time."),
+        ("Can I give a delivery driver a temporary code?", "With most modern keypads and app controllers, yes. You can create a code that expires after a set time."),
         ("Do you install HOA entrance systems?", "Yes. We install and service multi-user keypads and intercoms for neighborhood entrances and work with HOA boards and management companies."),
         ("Will access control work with my current operator?", "In most cases. We confirm compatibility during the site visit."),
         ("What if a guest forgets the code?", "An intercom or phone-app controller lets you open the gate for them remotely."),
@@ -421,7 +421,7 @@ dict(
       h1="Gate Repair",
       title="Gate & Gate Opener Repair in Plano, TX | Keystone Fence & Deck",
       meta="Repair for sagging, dragging and broken gates and automatic gate openers: re-hanging, new frames, posts, hinges and latches across Collin County.",
-      lede="Sagging, dragging and won't-latch gates fixed at the cause — the post, the frame or the hinge — instead of just moving the latch.",
+      lede="Sagging, dragging and won't-latch gates fixed at the cause (the post, the frame or the hinge) instead of just moving the latch.",
       card="Sagging, dragging and broken gates and openers, fixed at the cause.",
       drawing="gate_repair",
       overview=[
@@ -445,7 +445,7 @@ dict(
       ],
       faqs=[
         ("Is it worth repairing an old gate?", "If the frame is sound, usually yes. If the wood frame has rotted or racked badly, rebuilding on a steel frame costs little more than repeated repairs."),
-        ("Why does my gate drag after rain?", "Often the hinge post is moving in wet clay. Resetting it deeper in concrete — or replacing it with steel — usually fixes it for good."),
+        ("Why does my gate drag after rain?", "Often the hinge post is moving in wet clay. Resetting it deeper in concrete, or replacing it with steel, usually fixes it for good."),
         ("Do you repair automatic gate openers?", "Yes. We repair and service most common swing and slide operators, including safety devices."),
         ("Can you fix a gate on the first visit?", "Simple hardware repairs often can be done on the first visit. Post and frame work is scheduled after the estimate."),
       ],
@@ -458,7 +458,7 @@ dict(
   h1="Decks, Pergolas & Patio Covers in North Dallas",
   title="Deck Builder in Plano, TX | Keystone Fence & Deck",
   meta="Cedar and composite decks, pergolas and attached patio covers built with proper footings, ledgers and flashing across Collin County. Free estimates.",
-  lede="Decks and shade structures built like the framing matters — because it does. Proper footings, flashed ledgers and connections you can inspect.",
+  lede="Decks and shade structures built like the framing matters, because it does. Proper footings, flashed ledgers and connections you can inspect.",
   card="Cedar and composite decks, pergolas, patio covers and deck repair.",
   drawing="wood_deck",
   intro=[
@@ -469,10 +469,10 @@ dict(
   guide_cols=["", "Cedar", "Capped composite"],
   guide_rows=[
     ["Upfront cost", "Lower", "Higher"],
-    ["Upkeep", "Clean and seal every 1–2 years", "Wash; no staining"],
+    ["Upkeep", "Clean and seal every 1-2 years", "Wash; no staining"],
     ["Heat underfoot", "Stays cooler in sun", "Darker colors get hot"],
     ["Look", "Natural grain that weathers", "Consistent color, wood-look grain"],
-    ["Typical lifespan", "15–20 years", "25+ years"],
+    ["Typical lifespan", "15-20 years", "25+ years"],
   ],
   guide_note="Lifespans are typical ranges with normal maintenance, not guarantees.",
   factors=[
@@ -494,7 +494,7 @@ dict(
       h1="Wood Deck Construction",
       title="Cedar & Wood Deck Builder in Plano, TX | Keystone Fence & Deck",
       meta="Cedar and pressure-treated wood decks with concrete footings, flashed ledgers and code-compliant railings, from ground level to raised, across Collin County.",
-      lede="Cedar and treated-pine decks on concrete footings and flashed, bolted ledgers — framed to be safe before they're finished to look good.",
+      lede="Cedar and treated-pine decks on concrete footings and flashed, bolted ledgers, framed to be safe before they're finished to look good.",
       card="Ground-level to raised cedar decks on proper footings.",
       drawing="wood_deck",
       overview=[
@@ -520,7 +520,7 @@ dict(
         ("Cedar or pressure-treated pine?", "Cedar looks better, resists rot naturally and stays more stable. Treated pine costs less and is right for framing; some homeowners choose it for decking and stain it."),
         ("When does a deck need a railing?", "Residential codes typically require guards where the walking surface is more than 30 inches above grade. We confirm with your city."),
         ("How do I keep a wood deck looking good?", "Clean it and apply a penetrating sealer every year or two. We offer deck sealing as a service."),
-        ("Can you replace the boards on my old deck?", "If the framing is sound, yes — see deck repair."),
+        ("Can you replace the boards on my old deck?", "If the framing is sound, yes. See deck repair."),
       ],
       related=["decks/composite-decks", "decks/pergolas", "decks/deck-repair"]),
 
@@ -528,12 +528,12 @@ dict(
       h1="Composite Deck Construction",
       title="Composite Deck Builder in Plano, TX | Keystone Fence & Deck",
       meta="Capped composite decks with hidden fasteners, aluminum or cable railing and framing built for composite spans. Low-maintenance decks in Collin County.",
-      lede="Capped composite decking on framing built for composite spans — the low-maintenance deck that doesn't need staining every other summer.",
+      lede="Capped composite decking on framing built for composite spans, the low-maintenance deck that doesn't need staining every other summer.",
       card="Capped composite with hidden fasteners and metal or cable rail.",
       drawing="composite_deck",
       overview=[
         "Composite decking trades a higher upfront cost for years without sanding or staining. Modern capped boards resist fading, staining and mold far better than early composites, and hidden fasteners leave a clean surface with no screw heads.",
-        "Composite does need different framing from wood: tighter joist spacing, solid blocking and the expansion gaps manufacturers require. We frame to the manufacturer's installation guide so the warranty stays valid. We'll also be straight with you about heat — darker boards get hot in full Texas sun, so color choice matters.",
+        "Composite does need different framing from wood: tighter joist spacing, solid blocking and the expansion gaps manufacturers require. We frame to the manufacturer's installation guide so the warranty stays valid. We'll also be straight with you about heat: darker boards get hot in full Texas sun, so color choice matters.",
       ],
       options=[
         ("Capped composite", "Polymer-capped boards that resist fade, stains and mold.", "composite_deck"),
@@ -562,7 +562,7 @@ dict(
       h1="Custom Pergola Construction",
       title="Custom Cedar Pergolas in Plano, TX | Keystone Fence & Deck",
       meta="Freestanding and attached cedar pergolas with shaped rafter tails, built on concrete footings. Add shade over decks and patios across Collin County.",
-      lede="Cedar pergolas that bring partial shade and structure to a patio or deck — sized to the space and anchored on concrete footings.",
+      lede="Cedar pergolas that bring partial shade and structure to a patio or deck, sized to the space and anchored on concrete footings.",
       card="Freestanding and attached cedar pergolas on concrete footings.",
       drawing="pergola",
       overview=[
@@ -596,15 +596,15 @@ dict(
       h1="Patio Cover Construction",
       title="Patio Cover Builder in Plano, TX | Keystone Fence & Deck",
       meta="Attached and freestanding patio covers with metal or shingle roofs, tied into your house framing and flashed against leaks. Shade and rain cover in Collin County.",
-      lede="Solid-roof patio covers that add usable outdoor space through summer and rain — tied into your house properly so the joint never leaks.",
+      lede="Solid-roof patio covers that add usable outdoor space through summer and rain, tied into your house properly so the joint never leaks.",
       card="Solid-roof covers tied into the house and flashed against leaks.",
       drawing="patio_cover",
       overview=[
         "A patio cover is the difference between a patio you use in July and one you look at through the window. A solid roof blocks the sun outright, keeps rain off furniture and outdoor kitchens, and can carry fans and lights.",
-        "The critical joint is where the cover meets your house. We attach to the wall framing — not just the siding or brick — and flash the connection so water runs off rather than into your wall. Roofs can be standing-seam metal, shingles to match the house, or insulated panels.",
+        "The critical joint is where the cover meets your house. We attach to the wall framing, not just the siding or brick, and flash the connection so water runs off rather than into your wall. Roofs can be standing-seam metal, shingles to match the house, or insulated panels.",
       ],
       options=[
-        ("Attached cover", "Tied into the house and flashed — the most common style.", "patio_cover"),
+        ("Attached cover", "Tied into the house and flashed, the most common style.", "patio_cover"),
         ("Freestanding cover", "Its own structure, for pools, outdoor kitchens and far corners of the yard.", None),
         ("Roofing", "Standing-seam metal, matching shingles or insulated panels.", None),
       ],
@@ -630,12 +630,12 @@ dict(
       h1="Deck Repair & Restoration",
       title="Deck Repair & Restoration in Plano, TX | Keystone Fence & Deck",
       meta="Deck board replacement, joist sistering, railing repair, resealing and safety checks for wood and composite decks across Collin County.",
-      lede="Soft boards, wobbly railings and tired finishes fixed — after we've checked the structure underneath, because that's what actually holds the deck up.",
+      lede="Soft boards, wobbly railings and tired finishes fixed, after we've checked the structure underneath, because that's what actually holds the deck up.",
       card="Board and joist repair, railings and resealing, after a structural check.",
       drawing="deck_repair",
       overview=[
-        "Most decks can be saved. Surface problems — weathered, cupped or split boards, loose railings and failed finishes — are straightforward to fix. The real question is what's happening under the boards: a ledger letting water into the house, rotted joists, or posts sitting on settling blocks.",
-        "Every repair starts with a look underneath. If the structure is sound, we replace boards, sister damaged joists, tighten or rebuild railings and refinish. If it isn't, we'll show you what we found and quote a rebuild — never new boards over a bad frame.",
+        "Most decks can be saved. Surface problems (weathered, cupped or split boards, loose railings and failed finishes) are straightforward to fix. The real question is what's happening under the boards: a ledger letting water into the house, rotted joists, or posts sitting on settling blocks.",
+        "Every repair starts with a look underneath. If the structure is sound, we replace boards, sister damaged joists, tighten or rebuild railings and refinish. If it isn't, we'll show you what we found and quote a rebuild, never new boards over a bad frame.",
       ],
       options=[
         ("Board replacement", "Replace soft or split boards, or re-deck on sound framing.", "deck_repair"),
@@ -656,7 +656,7 @@ dict(
         ("How do I know if my deck is safe?", "Warning signs include soft boards, a wobbly railing, rust at connectors, and gaps where the deck meets the house. We'll inspect it and show you."),
         ("Can you resurface my deck with composite?", "If the framing is sound and spaced for composite, yes. Older frames often need extra joists first."),
         ("How often should a wood deck be sealed?", "Every one to two years in North Texas sun."),
-        ("Do you repair composite decks?", "Yes — board replacement, fastener problems and railings."),
+        ("Do you repair composite decks?", "Yes, board replacement, fastener problems and railings."),
       ],
       related=["decks/wood-decks", "decks/composite-decks", "repair/fence-staining"]),
   ]),
@@ -667,11 +667,11 @@ dict(
   h1="Fence Repair & Restoration in Plano & North Dallas",
   title="Fence Repair & Restoration in Plano, TX | Keystone Fence & Deck",
   meta="Fence repair, storm damage, post replacement, staining and old fence removal across Collin County. Prompt assessments and written repair estimates.",
-  lede="Leaning sections, storm damage, grey boards and rotted posts — repaired properly, or replaced when a repair would only buy you a season.",
+  lede="Leaning sections, storm damage, grey boards and rotted posts, repaired properly, or replaced when a repair would only buy you a season.",
   card="Repairs, storm damage, post replacement, staining and removal.",
   drawing="storm",
   intro=[
-    "Not every tired fence needs replacing. A fence with sound boards and a few failed posts can often be straightened, reset on steel posts and stained for a fraction of the cost of new. A fence rotting top to bottom is better replaced — and we'll tell you honestly which yours is.",
+    "Not every tired fence needs replacing. A fence with sound boards and a few failed posts can often be straightened, reset on steel posts and stained for a fraction of the cost of new. A fence rotting top to bottom is better replaced, and we'll tell you honestly which yours is.",
     "North Texas storms are hard on fences: straight-line winds and falling limbs can flatten a section in an afternoon. After a storm we prioritize securing yards with pets and pools, then schedule permanent repairs, and we document damage with photos for your insurance claim.",
   ],
   guide_title="Repair or replace?",
@@ -683,7 +683,7 @@ dict(
     ["Widespread rot on an older fence", "Whole fence at end of life", "Replace"],
     ["Grey but solid boards", "Weathering only", "Clean, stain and seal"],
   ],
-  guide_note="We confirm on site — this is a starting point, not a diagnosis.",
+  guide_note="We confirm on site. This is a starting point, not a diagnosis.",
   factors=[
     ("Extent of damage", "How many boards, rails and sections are affected."),
     ("Posts", "Post replacement is the biggest repair cost."),
@@ -695,7 +695,7 @@ dict(
   faqs=[
     ("Can you help with an insurance claim?", "We document damage with photos and provide a written repair estimate you can submit. Your policy and adjuster decide coverage."),
     ("Can you match old boards?", "As closely as current lumber allows. New cedar looks different until it weathers or is stained."),
-    ("How quickly can you come after a storm?", "We triage by safety — pets, pools and open yards first — and give you a time window when you call."),
+    ("How quickly can you come after a storm?", "We triage by safety (pets, pools and open yards first) and give you a time window when you call."),
     ("Do you repair fences you didn't build?", "Yes, all the time."),
   ],
   children=[
@@ -707,7 +707,7 @@ dict(
       card="Boards, rails and leaning sections repaired with matched materials.",
       drawing="fence_repair",
       overview=[
-        "Fence repairs usually come down to three things: boards that have split or been knocked out, rails that have pulled away from posts, and posts that have rotted or heaved. The first two are quick fixes. The third is what makes a fence lean — and nailing it straight again doesn't last.",
+        "Fence repairs usually come down to three things: boards that have split or been knocked out, rails that have pulled away from posts, and posts that have rotted or heaved. The first two are quick fixes. The third is what makes a fence lean, and nailing it straight again doesn't last.",
         "We replace damaged pickets and rails with matching material, re-fasten with galvanized or stainless fasteners, and fix leaning sections at the post, usually by replacing failed wood posts with galvanized steel set in concrete.",
       ],
       options=[
@@ -737,12 +737,12 @@ dict(
       h1="Storm Damage Fence Repair",
       title="Storm Damage Fence Repair in Plano, TX | Keystone Fence & Deck",
       meta="Storm damage fence repair after wind, hail and falling trees: temporary securing, insurance photos and permanent rebuilds on steel posts across Collin County.",
-      lede="When straight-line winds or a falling tree take a fence down, we secure the yard first and rebuild properly second — with photos for your insurer.",
-      card="Secure the yard first, then rebuild on steel — with insurance photos.",
+      lede="When straight-line winds or a falling tree take a fence down, we secure the yard first and rebuild properly second, with photos for your insurer.",
+      card="Secure the yard first, then rebuild on steel, with insurance photos.",
       drawing="storm",
       overview=[
         "North Texas spring storms bring straight-line winds strong enough to fold a privacy fence flat, and a tall solid fence catches wind like a sail. The damage is usually the same: posts snapped or pulled at the footing, sections leaning or down, and pickets broken by debris or falling limbs.",
-        "Our first job after a storm is making your yard safe — especially if you have dogs, a pool or an open property line. Then we document the damage, write a repair estimate and rebuild on steel posts that hold far better in the next storm.",
+        "Our first job after a storm is making your yard safe, especially if you have dogs, a pool or an open property line. Then we document the damage, write a repair estimate and rebuild on steel posts that hold far better in the next storm.",
       ],
       options=[
         ("Emergency securing", "Temporary panels or bracing to close the yard.", None),
@@ -771,20 +771,20 @@ dict(
       h1="Fence Staining & Sealing",
       title="Fence Staining & Sealing in Plano, TX | Keystone Fence & Deck",
       meta="Fence cleaning, staining and sealing for cedar and pine fences in semi-transparent and solid stains, in HOA-approved colors across Collin County.",
-      lede="Grey, weathered fences cleaned and stained in an HOA-approved color — protecting the wood from sun and moisture while it looks new again.",
+      lede="Grey, weathered fences cleaned and stained in an HOA-approved color, protecting the wood from sun and moisture while it looks new again.",
       card="Clean, stain and seal in HOA-approved colors.",
       drawing="staining",
       overview=[
         "Texas sun turns untreated cedar silver-grey within a year, and the UV that greys the surface also breaks down the wood fibers. A good penetrating stain slows that down, blocks the moisture that causes warping and cracking, and evens out repairs so new and old boards match.",
-        "We clean first — washing away grey surface fibers, mildew and dirt — let the wood dry, then spray and back-brush the stain so it penetrates rather than sitting on top. We stain both sides when you want, and protect your grass, plants, house and driveway from overspray.",
+        "We clean first (washing away grey surface fibers, mildew and dirt), let the wood dry, then spray and back-brush the stain so it penetrates rather than sitting on top. We stain both sides when you want, and protect your grass, plants, house and driveway from overspray.",
       ],
       options=[
-        ("Semi-transparent stain", "Shows the grain while adding color and UV protection — the most popular choice on cedar.", "staining"),
+        ("Semi-transparent stain", "Shows the grain while adding color and UV protection, the most popular choice on cedar.", "staining"),
         ("Solid stain", "Opaque color that hides weathering and mismatched boards.", None),
         ("Clear sealer", "Water-repellent protection with minimal color change.", None),
       ],
       included=["Inspection and minor repairs first", "Cleaning to remove grey fibers and mildew", "Protection for plants, grass and hardscape", "Spray-and-back-brush application", "One or both sides", "Color matched to your HOA's requirements"],
-      specs=[("Stain types", "Semi-transparent, solid or clear"), ("Base", "Oil- or water-based penetrating stain"), ("Prep", "Cleaned and dried before staining"), ("Application", "Spray and back-brush"), ("Coverage", "One or both sides"), ("Recoat", "Typically every 2–3 years")],
+      specs=[("Stain types", "Semi-transparent, solid or clear"), ("Base", "Oil- or water-based penetrating stain"), ("Prep", "Cleaned and dried before staining"), ("Application", "Spray and back-brush"), ("Coverage", "One or both sides"), ("Recoat", "Typically every 2-3 years")],
       factors=[
         ("Length and height", "Total square footage of fence face."),
         ("One or both sides", "Both sides roughly doubles the work."),
@@ -797,7 +797,7 @@ dict(
         ("How soon can new cedar be stained?", "Usually after a few weeks, once the wood has dried enough to absorb stain. We check moisture before staining."),
         ("How often should I re-stain?", "Every two to three years for semi-transparent stain in full sun; solid stain lasts somewhat longer."),
         ("Can you match my HOA's required color?", "Yes. Bring us the approved color, or we'll check your HOA's guidelines."),
-        ("Will you stain my neighbor's side?", "Only with your neighbor's agreement — we're happy to coordinate."),
+        ("Will you stain my neighbor's side?", "Only with your neighbor's agreement. We're happy to coordinate."),
       ],
       related=["repair/fence-repair", "fencing/wood-privacy-fence", "decks/deck-repair"]),
 
@@ -809,12 +809,12 @@ dict(
       card="Rotted wood posts swapped for galvanized steel in concrete.",
       drawing="post_section",
       overview=[
-        "Wood fence posts usually rot in one place: right at ground level, where the post stays damp and the soil holds moisture against it. By the time a fence leans, the posts have often rotted through while the pickets above are still fine. Replacing the posts — not the fence — is often the smart repair.",
+        "Wood fence posts usually rot in one place: right at ground level, where the post stays damp and the soil holds moisture against it. By the time a fence leans, the posts have often rotted through while the pickets above are still fine. Replacing the posts, not the fence, is often the smart repair.",
         "We remove the old post and footing, set a galvanized steel post in a new concrete footing, and reattach the existing rails and boards. Steel posts don't rot, termites ignore them, and they hold far better in shifting clay.",
       ],
       options=[
         ("Steel post swap", "Replace rotted wood posts with galvanized steel in new footings.", "post_section"),
-        ("Post mender", "A steel brace driven beside a sound but loose post — a budget fix where the post isn't rotted.", None),
+        ("Post mender", "A steel brace driven beside a sound but loose post, a budget fix where the post isn't rotted.", None),
         ("Full re-post", "Re-post an entire fence line while keeping the usable boards.", None),
       ],
       included=["Removal of the old post and footing", "Texas811 locate before digging", "Galvanized steel post in a new concrete footing", "Footing crowned to shed water", "Rails and boards reattached and straightened", "Haul-off of old posts and concrete"],
@@ -839,12 +839,12 @@ dict(
       h1="Fence Removal & Haul-Off",
       title="Old Fence Removal & Haul-Off in Plano, TX | Keystone Fence & Deck",
       meta="Tear-out and haul-off of old wood, chain link and iron fences, including post footings, with holes backfilled. Standalone or before a new fence.",
-      lede="Old fences torn out, footings pulled, holes backfilled and everything hauled away — before your new fence, or just to open up the yard.",
+      lede="Old fences torn out, footings pulled, holes backfilled and everything hauled away, before your new fence, or just to open up the yard.",
       card="Tear-out, footings pulled, holes backfilled and hauled off.",
       drawing="removal",
       overview=[
         "Removing a fence properly means more than knocking down boards. Old posts are usually set in concrete, and footings left in the ground get in the way of new posts, landscaping and future work. We pull the posts and footings, backfill the holes and haul everything off.",
-        "Most removal happens right before we install a new fence, so there's one crew, one schedule and no gap where your yard is open. We also remove fences as standalone jobs — when combining properties, opening up a yard, or clearing a line before landscaping.",
+        "Most removal happens right before we install a new fence, so there's one crew, one schedule and no gap where your yard is open. We also remove fences as standalone jobs, when combining properties, opening up a yard, or clearing a line before landscaping.",
       ],
       options=[
         ("Before a new fence", "Tear-out scheduled right before installation, so the yard isn't left open.", None),
@@ -877,7 +877,7 @@ SILOS.append(dict(
   h1="Land Clearing & Site Prep in Collin County",
   title="Land & Lot Clearing in Collin County, TX | Keystone Fence & Deck",
   meta="Acreage, lot, brush and fence-line clearing, forestry mulching and site grading across Collin County and North Dallas. No burn piles. Free on-site estimates.",
-  lede="Overgrown acreage, brushy lots and fence lines buried in privet — cleared, mulched or hauled, and graded so whatever comes next starts on clean ground.",
+  lede="Overgrown acreage, brushy lots and fence lines buried in privet: cleared, mulched or hauled, and graded so whatever comes next starts on clean ground.",
   card="Acreage, lot, brush and fence-line clearing, forestry mulching and grading.",
   drawing="land_clearing",
   intro=[
@@ -905,14 +905,14 @@ SILOS.append(dict(
     ("Do you burn the brush?", "No. Many cities and counties restrict open burning, and burn bans are common in dry months. We mulch material in place or haul it off, and the mulch also protects bare soil from erosion."),
     ("Can you keep certain trees?", "Yes. We walk the site with you first and flag every tree that stays. Selective clearing around keeper trees is a large part of our work."),
     ("Do I need a permit to clear land?", "Often not for brush, but some cities protect larger trees and regulate work near creeks and floodplains. We check your city's rules before any sizable tree comes down."),
-    ("How much ground can you clear in a day?", "It varies widely with density and terrain — from a large backyard to several acres of light brush. We give you a realistic schedule with the estimate."),
+    ("How much ground can you clear in a day?", "It varies widely with density and terrain, from a large backyard to several acres of light brush. We give you a realistic schedule with the estimate."),
   ],
   children=[
     dict(slug="acreage-clearing", code="L-01", name="Acreage Clearing",
       h1="Acreage & Land Clearing",
       title="Acreage & Land Clearing in Collin County | Keystone Fence & Deck",
-      meta="Overgrown acreage cleared of brush, privet, cedar and small trees for pasture, homesites and fencing — mulched or hauled, keeper trees flagged first. Free estimates.",
-      lede="Overgrown acreage opened back up for pasture, a homesite or a new fence — keeper trees flagged first, everything else mulched or hauled.",
+      meta="Overgrown acreage cleared of brush, privet, cedar and small trees for pasture, homesites and fencing, with keeper trees flagged first. Free estimates.",
+      lede="Overgrown acreage opened back up for pasture, a homesite or a new fence. Keeper trees are flagged first; everything else is mulched or hauled.",
       card="Brush, privet, cedar and small trees cleared from acreage.",
       drawing="land_clearing",
       overview=[
@@ -937,7 +937,7 @@ SILOS.append(dict(
       faqs=[
         ("Will clearing damage my pasture soil?", "Track machines spread their weight and do far less damage than wheeled equipment, and the mulch left on the surface protects the soil while grass re-establishes."),
         ("How do you handle invasive privet?", "We mulch or remove it at the base. Privet resprouts from its roots, so expect some regrowth; a follow-up pass keeps it from coming back thick."),
-        ("Can you clear around my existing fence?", "Yes, and we can repair or rebuild the fence on the cleared line afterward — that's where most of our clearing work starts."),
+        ("Can you clear around my existing fence?", "Yes, and we can repair or rebuild the fence on the cleared line afterward. That's where most of our clearing work starts."),
         ("Do you clear for new home sites?", "Yes. We open the building area and driveway path, keep the trees you want, and leave the pad ready for your builder."),
       ],
       related=["land-clearing/forestry-mulching", "land-clearing/fence-line-clearing", "fencing/pipe-ranch-fence"]),
@@ -946,11 +946,11 @@ SILOS.append(dict(
       h1="Residential & Vacant Lot Clearing",
       title="Lot Clearing in Plano & North Dallas | Keystone Fence & Deck",
       meta="Overgrown residential and vacant lots cleared of brush, debris and small trees for building, sale or code compliance. Hauled off and left ready for your builder.",
-      lede="Overgrown backyards, vacant lots and infill sites cleared to ground level and hauled off — ready to build on, list, or simply use again.",
+      lede="Overgrown backyards, vacant lots and infill sites cleared to ground level and hauled off, ready to build on, list, or simply use again.",
       card="Overgrown yards and vacant lots cleared and hauled off.",
       drawing="lot_clearing",
       overview=[
-        "Lot clearing covers a wide range: an overgrown backyard behind a house that's sat empty, a vacant infill lot that's drawn a code-compliance letter, or a lot being prepared for a new build. The goal is the same — vegetation, debris and junk out, and the ground back to a clean, workable surface.",
+        "Lot clearing covers a wide range: an overgrown backyard behind a house that's sat empty, a vacant infill lot that's drawn a code-compliance letter, or a lot being prepared for a new build. The goal is the same: vegetation, debris and junk out, and the ground back to a clean, workable surface.",
         "On residential lots we work close to neighbors, fences and utilities, so the approach is more careful than on open acreage: compact machines, hand crews along fence lines, and everything hauled off rather than mulched in place, unless you'd like the mulch.",
       ],
       options=[
@@ -970,7 +970,7 @@ SILOS.append(dict(
       ],
       faqs=[
         ("Can you clear a lot that received a code violation?", "Yes. Tell us the deadline on the notice and we'll schedule around it and leave the lot in compliant condition."),
-        ("Do you remove junk and old fencing too?", "Yes — dumped debris, old fence and wire come out with the vegetation and are hauled off."),
+        ("Do you remove junk and old fencing too?", "Yes, dumped debris, old fence and wire come out with the vegetation and are hauled off."),
         ("Will you protect my neighbor's fence?", "We hand-clear along shared fences and keep machines back from them."),
         ("Can you clear to my builder's plan?", "Yes. We work to the builder's clearing limits and protect the trees marked to stay."),
       ],
@@ -979,8 +979,8 @@ SILOS.append(dict(
     dict(slug="brush-clearing", code="L-03", name="Brush Clearing",
       h1="Brush & Undergrowth Clearing",
       title="Brush Clearing & Removal in Collin County | Keystone Fence & Deck",
-      meta="Brush clearing for privet, greenbriar, saplings and overgrowth on pastures, lots, fence lines and creek edges — cut, mulched or hauled. Free North Texas estimates.",
-      lede="Privet, greenbriar, poison ivy and saplings cut back to the ground — for pasture upkeep, firebreaks, or simply getting your land back.",
+      meta="Brush clearing for privet, greenbriar, saplings and overgrowth on pastures, lots, fence lines and creek edges: cut, mulched or hauled. Free North Texas estimates.",
+      lede="Privet, greenbriar, poison ivy and saplings cut back to the ground, for pasture upkeep, firebreaks, or simply getting your land back.",
       card="Privet, greenbriar and saplings cut, mulched or hauled.",
       drawing="brush",
       overview=[
@@ -1003,10 +1003,10 @@ SILOS.append(dict(
         ("Follow-up", "Maintenance cuts after the first clearing."),
       ],
       faqs=[
-        ("Will the brush grow back?", "Some will — privet and other brush resprout from the roots. A follow-up cut or two in the first year keeps it from coming back thick."),
+        ("Will the brush grow back?", "Some will. Privet and other brush resprout from the roots. A follow-up cut or two in the first year keeps it from coming back thick."),
         ("Can you clear poison ivy?", "Yes. Crews wear protection, and we cut or mulch it rather than burning it, which spreads the irritant."),
         ("Can you clear brush around trees I want to keep?", "Yes. We clear the understory and leave the trees, which often improves their health."),
-        ("Is brush clearing the same as mowing?", "No — brush cutters handle woody stems and saplings that would wreck a mower."),
+        ("Is brush clearing the same as mowing?", "No. Brush cutters handle woody stems and saplings that would wreck a mower."),
       ],
       related=["land-clearing/forestry-mulching", "land-clearing/fence-line-clearing", "land-clearing/acreage-clearing"]),
 
@@ -1014,7 +1014,7 @@ SILOS.append(dict(
       h1="Fence Line Clearing",
       title="Fence Line Clearing in Collin County, TX | Keystone Fence & Deck",
       meta="Brush, trees and old wire cleared along property lines so a new fence can go in straight: survey pins found, strip cleared, posts set by the same crew.",
-      lede="A clean, straight strip along your property line — brush, saplings and old wire out — so the new fence goes exactly where the survey says it should.",
+      lede="A clean, straight strip along your property line (brush, saplings and old wire out) so the new fence goes exactly where the survey says it should.",
       card="A clear, straight strip along the line, ready for a new fence.",
       drawing="fence_line",
       overview=[
@@ -1037,19 +1037,19 @@ SILOS.append(dict(
         ("Fence after", "Clearing and fencing together saves a mobilization."),
       ],
       faqs=[
-        ("How wide does the cleared strip need to be?", "Usually 8 to 15 feet — enough for equipment and a straight fence. We agree the width with you, and with your neighbor on a shared line."),
+        ("How wide does the cleared strip need to be?", "Usually 8 to 15 feet, enough for equipment and a straight fence. We agree the width with you, and with your neighbor on a shared line."),
         ("Can you find my property line?", "We work from your survey and locate the pins. If pins are missing or the line is in doubt, a licensed surveyor should re-mark it before we clear."),
         ("Do I need my neighbor's permission?", "For clearing on your own side, generally no, but on a shared line it's best to agree the plan with your neighbor first."),
-        ("Can you build the fence too?", "Yes — that's the point. Clearing and fencing by one crew means no gap between the two jobs."),
+        ("Can you build the fence too?", "Yes, that's the point. Clearing and fencing by one crew means no gap between the two jobs."),
       ],
       related=["fencing/pipe-ranch-fence", "land-clearing/brush-clearing", "repair/fence-removal"]),
 
     dict(slug="forestry-mulching", code="L-05", name="Forestry Mulching",
       h1="Forestry Mulching",
       title="Forestry Mulching in Collin County, TX | Keystone Fence & Deck",
-      meta="Forestry mulching grinds brush and small trees into mulch in place — no burn piles, no hauling, less erosion. For acreage, fence lines and wooded lots in Texas.",
-      lede="Brush and small trees ground into mulch where they stand — one machine, no burn piles, no trucks, and a protective layer left on the soil.",
-      card="Brush and small trees ground to mulch in place — no burning or hauling.",
+      meta="Forestry mulching grinds brush and small trees into mulch in place: no burn piles, no hauling, less erosion. For acreage, fence lines and wooded lots in Texas.",
+      lede="Brush and small trees ground into mulch where they stand: one machine, no burn piles, no trucks, and a protective layer left on the soil.",
+      card="Brush and small trees ground to mulch in place, with no burning or hauling.",
       drawing="mulching",
       overview=[
         "Forestry mulching uses a single track machine with a rotating drum of carbide teeth to grind brush and small trees into mulch right where they stand. There are no piles to burn, no loads to haul, and far less ground disturbance than pushing trees over with a dozer.",
@@ -1087,7 +1087,7 @@ SILOS.append(dict(
       drawing="grading",
       overview=[
         "Grading is shaping the ground so water goes where it should. On a North Texas lot that matters more than most places: water that pools against a foundation keeps expansive clay wet on one side and dry on the other, which is exactly what makes slabs and fences move. Residential codes typically call for the ground to fall at least six inches within the first ten feet from the foundation.",
-        "We grade small sites — backyards, side yards, deck and patio areas, pads for sheds and outbuildings — with compact equipment, then compact, check the fall and leave the surface ready for sod, gravel or construction. Where a yard needs drains as well as grading, we'll tell you.",
+        "We grade small sites (backyards, side yards, deck and patio areas, pads for sheds and outbuildings) with compact equipment, then compact, check the fall and leave the surface ready for sod, gravel or construction. Where a yard needs drains as well as grading, we'll tell you.",
       ],
       options=[
         ("Drainage correction", "Regrading low spots and slopes that send water toward the house.", "grading"),
@@ -1106,7 +1106,7 @@ SILOS.append(dict(
       ],
       faqs=[
         ("How do I know my yard needs grading?", "Water standing near the foundation after rain, soil washing toward the house, or gaps opening along the slab edge in dry spells are the usual signs."),
-        ("Can you grade before a deck or patio?", "Yes — that's one of our most common grading jobs, and it means the structure starts level."),
+        ("Can you grade before a deck or patio?", "Yes, that's one of our most common grading jobs, and it means the structure starts level."),
         ("Do you install drains?", "Where grading alone won't move the water, we'll recommend drains and can coordinate them with the grading."),
         ("Will grading affect my fence?", "If the fence is in the area being graded, we plan around it, and we can reset or replace posts at the same time."),
       ],

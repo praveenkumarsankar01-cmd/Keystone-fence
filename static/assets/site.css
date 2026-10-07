@@ -283,10 +283,6 @@ h4{font:700 1rem/1.35 var(--text)}
 .hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,64px);align-items:center}
 .hero h1{margin:16px 0 20px}
 .hero .lede{margin-bottom:28px}
-.hero-proof{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;padding-top:22px;border-top:1px solid var(--rule);
-  list-style:none;padding-left:0;font:500 12.5px/1.3 var(--mono);letter-spacing:.04em;color:var(--steel)}
-.hero-proof li{display:flex;align-items:center;gap:8px}
-.hero-proof svg{width:15px;height:15px;color:var(--stamp);flex:none}
 .page-hero{padding-block:clamp(28px,4.5vw,56px) clamp(36px,5vw,64px);border-bottom:1px solid var(--rule)}
 .page-hero .hero-grid{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}
 .page-hero h1{font-size:clamp(2.3rem,5vw,3.9rem);margin:14px 0 18px}
@@ -646,8 +642,6 @@ a.card-more:hover{color:var(--cedar-deep)}
   .hdr-cta{margin-left:auto;gap:8px}
 }
 .spec td,.spec td a{overflow-wrap:anywhere}
-.hero-proof{display:grid;grid-template-columns:repeat(2,max-content);justify-content:start;gap:9px 26px}
-@media(max-width:620px){.hero-proof{grid-template-columns:1fr}}
 /* every card's drawing panel shares one shape, so the text rows line up */
 .silo-card .card-art,.card-art{aspect-ratio:16/8}
 .card-art .drawing{width:100%;height:100%}
@@ -860,7 +854,6 @@ figure{margin:0}
 .map-panels .map-areas,.map-panels .map-key{position:static;width:auto;background:var(--sheet);border:1px solid var(--rule-2);box-shadow:none}
 .map-panels .map-areas{padding:22px 24px;display:flex;flex-direction:column;justify-content:center}
 .map-panels .map-key{padding:8px;margin:0;display:flex;align-items:center}
-.map-areas > .code{display:block;margin-bottom:14px}
 .map-areas .chips{gap:8px}
 .map-areas .help{margin:16px 0 8px !important}
 .map-canvas{--mh:clamp(520px,42vw,600px);position:relative;height:var(--mh);overflow:hidden;background:#f8f8f8;border-block:1px solid var(--rule-2)}
@@ -880,3 +873,50 @@ figure{margin:0}
 
 /* ── trade cards with a photo ───────────────────────────────────── */
 .silo-card .card-art.has-photo{aspect-ratio:16/9;padding:0}
+
+/* ── design pass (taste skill): one job per section ─────────────── */
+/* Hero holds eyebrow, headline, one line of copy and the CTAs; the
+   standards that used to sit under the buttons get their own strip. */
+@media(min-width:1181px){
+  .hero .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
+  .hero h1{font-size:clamp(2.6rem,4.3vw,3.9rem)}
+}
+.hero .lede{max-width:50ch;text-wrap:pretty}
+.proof-bar{background:var(--sheet);border-bottom:1px solid var(--rule)}
+.proof{list-style:none;margin:0;padding:18px 0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 28px;
+  font:500 13px/1.3 var(--mono);letter-spacing:.03em;color:var(--steel)}
+.proof li{display:flex;align-items:center;gap:9px}
+.proof svg{width:16px;height:16px;color:var(--stamp);flex:none}
+@media(max-width:760px){.proof{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;padding:16px 0}}
+@media(max-width:440px){.proof{grid-template-columns:1fr}}
+
+/* Home projects: one featured job across the row, two below, so the
+   section doesn't repeat the trade-card grid above it. */
+@media(min-width:761px){
+  .proj-feature{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .proj-feature > :first-child{grid-column:1/-1;flex-direction:row}
+  .proj-feature > :first-child .card-art{flex:0 0 50%;aspect-ratio:auto;min-height:300px;border-bottom:0;border-right:1px solid var(--rule)}
+  .proj-feature > :first-child .card-body{padding:28px 30px 30px;align-content:center}
+  .proj-feature > :first-child h3{font-size:2rem}
+}
+@media(min-width:1081px){.proj-feature > :first-child .proj-spec{grid-template-columns:1fr 1fr;column-gap:28px}}
+
+/* Standards: an open list, not another boxed grid. */
+.commit-open{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 56px;background:none;border:0}
+.commit-open > div{background:none;padding:0;grid-template-columns:40px minmax(0,1fr);column-gap:16px;row-gap:6px}
+.commit-open > div svg{grid-row:1 / span 2;width:30px;height:30px;margin-top:1px}
+.commit-open h3{font-size:1.12rem}
+.commit-open p{font-size:15px;max-width:48ch}
+@media(max-width:760px){.commit-open{grid-template-columns:1fr;gap:24px}}
+@media(max-width:620px){.commit-open{gap:22px}.commit-open > div{padding:0}.commit-open h3{font-size:1.02rem}.commit-open p{font-size:14.5px}}
+
+/* Specifications: one rule over the group instead of a hairline under every row. */
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px 32px;margin:0 0 1.2em;
+  padding-top:20px;border-top:2px solid var(--steel)}
+.spec-grid > div{min-width:0}
+.spec-grid dt{font:500 11.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.spec-grid dd{margin:6px 0 0;color:var(--steel);font-weight:500;font-size:15.5px;line-height:1.45;overflow-wrap:anywhere}
+
+.map-areas > h3{margin:0 0 14px}
+/* small codes beside links need AA contrast */
+.card-links .mc{color:var(--graphite)}

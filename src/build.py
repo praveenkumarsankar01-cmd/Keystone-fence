@@ -218,7 +218,7 @@ def header(ctx, active):
     for label, p in (("Projects", "projects/"), ("Service Areas", "service-areas/"), ("About", "about/"), ("Contact", "contact/")):
         groups.append(f'<div class="d-group"><a class="d-row" href="{href(ctx, p)}">{label}</a></div>')
 
-    brand = (f'<a class="brand" href="{href(ctx, "")}" aria-label="{A(CONFIG["name"])} — home">{logo_mark()}'
+    brand = (f'<a class="brand" href="{href(ctx, "")}" aria-label="{A(CONFIG["name"])} home">{logo_mark()}'
              f'<span class="brand-word"><span class="brand-name">Keystone</span><span class="brand-sub">Fence &amp; Deck Co.</span></span></a>')
     hours = " · ".join(f"{d} {h}" for d, h in CONFIG["hours"][:2])
     return f"""<a class="skip" href="#main">Skip to content</a>
@@ -232,14 +232,14 @@ def header(ctx, active):
 <nav class="nav" aria-label="Main">{''.join(nav)}</nav>
 <div class="hdr-cta">
 <a class="hdr-tel" href="{TEL}" data-loc="header"><small>Call us</small><span>{E(CONFIG['phone'])}</span></a>
-<a class="btn btn-primary" href="{href(ctx, 'free-estimate/')}">Free Estimate</a>
+<a class="btn btn-primary" href="{href(ctx, 'free-estimate/')}">Free estimate</a>
 <a class="icon-btn" href="{TEL}" data-loc="header-mobile" aria-label="Call {A(CONFIG['phone'])}">{IC['phone']}</a>
 <button class="icon-btn js-menu" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">{IC['menu']}</button>
 </div></div></header>
 <div class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-label="Menu">
 <div class="drawer-top">{brand}<button class="icon-btn js-close" type="button" aria-label="Close menu" style="display:inline-flex">{IC['close']}</button></div>
 <div class="drawer-body">{''.join(groups)}</div>
-<div class="drawer-foot"><a class="btn btn-primary btn-block" href="{href(ctx, 'free-estimate/')}">Request a Free Estimate</a>
+<div class="drawer-foot"><a class="btn btn-primary btn-block" href="{href(ctx, 'free-estimate/')}">Free estimate</a>
 <a class="btn btn-line btn-block" href="{TEL}" data-loc="drawer">{IC['phone']} Call {E(CONFIG['phone'])}</a></div>
 </div>
 """
@@ -260,12 +260,12 @@ def footer(ctx, estimate_page=False):
     mbar = (f'<div class="mbar" style="grid-template-columns:1fr"><a class="btn btn-primary" href="{TEL}" data-loc="mobile-bar">{IC["phone"]} Call {E(CONFIG["phone"])}</a></div>'
             if estimate_page else
             f'<div class="mbar"><a class="btn btn-ghost-dark" href="{TEL}" data-loc="mobile-bar">{IC["phone"]} Call</a>'
-            f'<a class="btn btn-primary" href="{href(ctx, "free-estimate/")}">Free Estimate</a></div>')
+            f'<a class="btn btn-primary" href="{href(ctx, "free-estimate/")}">Free estimate</a></div>')
     return f"""<footer class="ftr"><div class="wrap">
 <div class="ftr-grid">
 <div class="ftr-about">
 <a class="brand" href="{href(ctx, '')}">{logo_mark()}<span class="brand-word"><span class="brand-name">Keystone</span><span class="brand-sub">Fence &amp; Deck Co.</span></span></a>
-<p>Fences, gates, decks, repairs and land clearing across Plano, Collin County and North Dallas — built on steel posts and priced in writing after a walk of your property.</p>
+<p>Fences, gates, decks, repairs and land clearing across Plano, Collin County and North Dallas. Built on steel posts and priced in writing after a walk of your property.</p>
 </div>
 <div><h2>Services</h2><ul>{hubs}<li><a href="{href(ctx, 'services/')}">All services</a></li></ul></div>
 <div><h2>Popular</h2><ul>{pop}</ul></div>
@@ -274,8 +274,10 @@ def footer(ctx, estimate_page=False):
 <li><a class="ftr-tel" href="{TEL}" data-loc="footer">{E(CONFIG['phone'])}</a></li>
 <li><a class="ftr-mail" href="mailto:{A(CONFIG['email'])}">{mail_text(CONFIG['email'])}</a></li>
 {hours}
-<li><a href="{href(ctx, 'free-estimate/')}">Request a free estimate</a></li>
-<li><a href="{href(ctx, 'projects/')}">Projects</a> · <a href="{href(ctx, 'about/')}">About</a> · <a href="{href(ctx, 'contact/')}">Contact</a></li>
+<li><a href="{href(ctx, 'free-estimate/')}">Free estimate</a></li>
+<li><a href="{href(ctx, 'projects/')}">Projects</a></li>
+<li><a href="{href(ctx, 'about/')}">About</a></li>
+<li><a href="{href(ctx, 'contact/')}">Contact</a></li>
 </ul></div>
 </div>
 <div class="ftr-base"><p>© <span class="js-year">{datetime.date.today().year}</span> {E(CONFIG['name'])} · <a href="{href(ctx, 'privacy/')}">Privacy</a></p>{disclose}</div>
@@ -328,7 +330,7 @@ def sheet(key, tag, labels=True):
 
 def btns(ctx, service=None, line_cls="btn-line"):
     q = f"?service={service}" if service else ""
-    return (f'<div class="btn-row"><a class="btn btn-primary" href="{href(ctx, "free-estimate/" + q)}">Request a free estimate {IC["arrow"]}</a>'
+    return (f'<div class="btn-row"><a class="btn btn-primary" href="{href(ctx, "free-estimate/" + q)}">Free estimate {IC["arrow"]}</a>'
             f'<a class="btn {line_cls}" href="{TEL}" data-loc="hero">{IC["phone"]} <span class="tel">{E(CONFIG["phone"])}</span></a></div>')
 
 
@@ -345,14 +347,14 @@ def silo_card(ctx, s):
     shot = photos("cards/" + s["key"])
     art = picture(ctx, shot[0], "(max-width: 620px) 92vw, (max-width: 1080px) 46vw, 380px") if shot else drawing(s["drawing"], False)
     return (f'<div class="card silo-card"><div class="card-art{" has-photo" if shot else ""}">{art}</div><div class="card-body">'
-            f'<div class="silo-head"><span class="card-code">{s["letter"]} — {E(s["nav"])}</span><span class="silo-count">{len(s["children"])} services</span></div>'
+            f'<div class="silo-head"><span class="silo-count">{len(s["children"])} services</span></div>'
             f'<h3><a href="{href(ctx, s["key"] + "/")}">{E(s["name"])}</a></h3><p>{E(s["card"])}</p>'
             f'<ul class="card-links">{links}</ul><a class="card-more" href="{href(ctx, s["key"] + "/")}">All {E(s["nav"].lower())} {IC["arrow"]}</a></div></div>')
 
 
-def faq_block(faqs, title="Common questions", code="FAQ"):
+def faq_block(faqs, title="Common questions"):
     items = "".join(f'<details><summary>{E(q)}</summary><div class="a"><p>{E(a)}</p></div></details>' for q, a in faqs)
-    return f'<div class="sec-head"><span class="code">{E(code)}</span><h2>{E(title)}</h2></div><div class="faq">{items}</div>'
+    return f'<div class="sec-head"><h2>{E(title)}</h2></div><div class="faq">{items}</div>'
 
 
 def factors_block(factors, title="What affects your estimate"):
@@ -369,11 +371,11 @@ def compare_table(cols, rows, note):
 
 
 def cta_band(ctx, title="Let's walk your property line.", text=None, service=None):
-    text = text or "Tell us about the project and we'll schedule a visit. You'll get an itemized written estimate — no prices guessed online, no pressure."
+    text = text or "Tell us about the project and we'll schedule a visit. You'll get an itemized written estimate, with no prices guessed online and no pressure."
     q = f"?service={service}" if service else ""
     return f"""<section class="sec band"><div class="wrap cta-band">
 <div><span class="code">Free on-site estimate</span><h2 style="margin:14px 0 14px">{E(title)}</h2><p class="lede" style="margin:0">{E(text)}</p></div>
-<div><a class="btn btn-primary" href="{href(ctx, 'free-estimate/' + q)}">Request a free estimate {IC['arrow']}</a>
+<div><a class="btn btn-primary" href="{href(ctx, 'free-estimate/' + q)}">Free estimate {IC['arrow']}</a>
 <p style="margin:18px 0 0;font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase">Or call</p>
 <a class="tel-big" href="{TEL}" data-loc="cta-band">{E(CONFIG['phone'])}</a></div>
 </div></section>"""
@@ -485,7 +487,7 @@ def wide_map(ctx, note):
     Google-styled map at its natural scale, cropped to the screen around the pins. Preview and live
     builds show the same map; without a render, live builds embed Google's map instead."""
     place, query = "Collin County, TX", "Collin County, Texas"
-    panels = (f'<div class="wrap map-panels"><div class="map-areas"><span class="code">Cities we serve</span>{areas_chips(ctx)}</div>'
+    panels = (f'<div class="wrap map-panels"><div class="map-areas"><h3>Cities we serve</h3>{areas_chips(ctx)}</div>'
               f'<div class="map-key">{coverage_svg(ctx, key=True)}</div></div>')
     if has_static_map("collin-county-wide"):
         canvas = f'<div class="map-stage">{map_layers(ctx, "collin-county-wide", place, framed=False)}</div>{MAP_CREDIT}'
@@ -579,7 +581,7 @@ def photo_strip(ctx, keys, title, cls="sec tight"):
     figs = "".join(f'<figure class="ph">{picture(ctx, p, "(max-width: 620px) 82vw, 380px")}'
                    + (f"<figcaption>{E(p['caption'])}</figcaption>" if p["caption"] else "") + "</figure>" for p in shots)
     note = '<p class="help" style="margin:12px 0 0">Photos are illustrative.</p>' if CONFIG["fictional"] else ""
-    return (f'<section class="{cls}"><div class="wrap"><div class="sec-head"><span class="code">Gallery</span><h2>{E(title)}</h2></div>'
+    return (f'<section class="{cls}"><div class="wrap"><div class="sec-head"><h2>{E(title)}</h2></div>'
             f'<div class="ph-grid">{figs}</div>{note}</div></section>')
 
 
@@ -603,12 +605,12 @@ def fld(fid, name, label, kind="text", req=True, auto=None, err="Please fill thi
 def service_select(fid, preselect=None):
     groups = []
     for s in SILOS:
-        opts = "".join(f'<option value="{A(s["name"] + " — " + c["name"])}" data-slug="{c["slug"]}"{" selected" if c["slug"] == preselect else ""}>{E(c["name"])}</option>'
+        opts = "".join(f'<option value="{A(s["name"] + " / " + c["name"])}" data-slug="{c["slug"]}"{" selected" if c["slug"] == preselect else ""}>{E(c["name"])}</option>'
                        for c in s["children"])
         groups.append(f'<optgroup label="{A(s["name"])}">{opts}</optgroup>')
     return (f'<div class="field"><label for="{fid}">Service needed <span class="req" aria-hidden="true">*</span></label>'
             f'<select class="select" id="{fid}" name="service" required aria-describedby="{fid}-e"><option value="">Choose a service…</option>'
-            f'{"".join(groups)}<option value="Not sure — help me choose" data-slug="not-sure">Not sure yet — help me choose</option></select>'
+            f'{"".join(groups)}<option value="Not sure, help me choose" data-slug="not-sure">Not sure yet, help me choose</option></select>'
             f'<span class="err" id="{fid}-e">Choose the service closest to your project.</span></div>')
 
 
@@ -634,17 +636,17 @@ def quick_form(ctx, svc_name, slug):
 <h2>Free estimate</h2>
 <p>Tell us a little about the job and we'll call to book a visit. No prices guessed online.</p>
 <form class="form js-lead" data-form="quick" novalidate>
-{hidden_inputs("quick", f"Quick estimate request — {svc_name}")}
+{hidden_inputs("quick", f"Quick estimate request: {svc_name}")}
 <input type="hidden" name="service" value="{A(svc_name)}">
 {fld("q-name", "name", "Name", auto="name", err="Please enter your name.")}
 {fld("q-phone", "phone", "Phone", kind="tel", auto="tel", err="Enter a phone number with area code.", extra=' data-phone inputmode="tel"')}
 {fld("q-addr", "address", "Project address or ZIP", auto="street-address", err="Where is the project?")}
-{fld("q-msg", "message", "A few details", req=False, area=True, rows=3, help_="Rough length, height, gates, timeline — whatever you know.")}
+{fld("q-msg", "message", "A few details", req=False, area=True, rows=3, help_="Rough length, height, gates and timeline: whatever you know.")}
 <button class="btn btn-primary btn-block" type="submit">Request my estimate {IC['arrow']}</button>
 <div class="form-status" role="alert"></div>
 <p class="help" style="margin:0">Want to add photos? <a href="{href(ctx, 'free-estimate/?service=' + slug)}">Use the full estimate form</a>.</p>
 </form>
-{success_block("Thanks — we'll be in touch.", ["We'll call within one business day to book a visit.", "We walk the property and talk through options.", "You get an itemized written estimate by email."])}
+{success_block("Thanks, we'll be in touch.", ["We'll call within one business day to book a visit.", "We walk the property and talk through options.", "You get an itemized written estimate by email."])}
 </div>"""
 
 
@@ -660,21 +662,21 @@ def build_home():
         com = "".join(f"<div>{IC[i]}<h3>{E(t)}</h3><p>{E(d)}</p></div>" for i, t, d in COMMITMENTS)
         return f"""
 <section class="hero"><div class="wrap hero-grid">
-<div><span class="code">{E(HOME['eyebrow'])}</span><h1>{E(HOME['h1'])}</h1><p class="lede">{E(HOME['lede'])}</p>{btns(ctx)}
-<ul class="hero-proof">{proof}</ul></div>
+<div><span class="code">{E(HOME['eyebrow'])}</span><h1>{E(HOME['h1'])}</h1><p class="lede">{E(HOME['lede'])}</p>{btns(ctx)}</div>
 {hero_media(ctx)}
 </div></section>
+<section class="proof-bar" aria-label="Standard on every job"><div class="wrap"><ul class="proof">{proof}</ul></div></section>
 
 <section class="sec"><div class="wrap">
-<div class="sec-head"><span class="code">{N_TRADES.capitalize()} trades · one crew</span><h2>What we build</h2>
+<div class="sec-head"><h2>What we build</h2>
 <p class="lede">Every service has its own page, its own specs and the same standards underneath. Start with the trade that fits your project.</p></div>
 <div class="grid silo-grid">{silos}
 <div class="card silo-cta"><div class="card-body">
 <span class="card-code">Not sure where to start?</span>
 <h3>Most jobs touch more than one trade</h3>
 <p>A new fence often starts with clearing the line; a deck often starts with grading. Tell us the project and we'll scope every part of it.</p>
-<a class="btn btn-primary" href="{href(ctx, 'free-estimate/')}">Request a free estimate {IC['arrow']}</a>
-<a class="card-more" href="{href(ctx, 'services/')}">See every service {IC['arrow']}</a>
+<a class="btn btn-primary" href="{href(ctx, 'free-estimate/')}">Free estimate {IC['arrow']}</a>
+<a class="card-more" href="{href(ctx, 'services/')}">All services {IC['arrow']}</a>
 </div></div></div>
 </div></section>
 {photo_strip(ctx, ["home"], "The work, up close", "sec tight alt")}
@@ -686,31 +688,31 @@ def build_home():
 </div></section>
 
 <section class="sec alt"><div class="wrap">
-<div class="sec-head"><span class="code">How it works</span><h2>How an estimate works</h2>
+<div class="sec-head"><h2>How an estimate works</h2>
 <p class="lede">No online price guesses. Four steps from first call to finished fence.</p></div>
 <ol class="steps">{steps}</ol>
 </div></section>
 
 <section class="sec"><div class="wrap">
-<div class="sec-head"><span class="code">Typical projects</span><h2>What a job looks like</h2>
+<div class="sec-head"><h2>What a job looks like</h2>
 <p class="lede">Typical scopes for the work we do most, with the specs that drive the estimate.</p></div>
-<div class="proj proj-rail">{feat}</div>
+<div class="proj proj-feature proj-rail">{feat}</div>
 <p style="margin:22px 0 0"><a href="{href(ctx, 'projects/')}"><strong>See all project types</strong></a></p>
 </div></section>
 
 <section class="sec sheet rule-top"><div class="wrap">
-<div class="sec-head"><span class="code">Who we build for</span><h2>Residential and commercial</h2></div>
+<div class="sec-head"><h2>Residential and commercial</h2></div>
 <div class="aud">{aud}</div>
 </div></section>
 
 <section class="sec alt"><div class="wrap">
-<div class="sec-head"><span class="code">Our standards</span><h2>What you can hold us to</h2>
-<p class="lede">Not reviews — commitments. Each of these is written into how we quote and build.</p></div>
-<div class="commit">{com}</div>
+<div class="sec-head"><h2>What you can hold us to</h2>
+<p class="lede">Each of these is written into how we quote and build.</p></div>
+<div class="commit commit-open">{com}</div>
 </div></section>
 
-<section class="sec map-sec"><div class="wrap"><div class="sec-head"><span class="code">Service areas</span><h2>Based in Plano, working across Collin County</h2>
-<p class="lede">Our crews work from Plano across North Dallas. Every city page covers the local details — HOAs, alleys, permits and soil.</p></div></div>
+<section class="sec map-sec"><div class="wrap"><div class="sec-head"><h2>Based in Plano, working across Collin County</h2>
+<p class="lede">Our crews work from Plano across North Dallas. Every city page covers the local details: HOAs, alleys, permits and soil.</p></div></div>
 {wide_map(ctx, "Based in Plano · serving Collin County & North Dallas")}
 </section>
 
@@ -738,21 +740,21 @@ def build_hub(s):
         cards = "".join(svc_card(ctx, f"{s['key']}/{c['slug']}") for c in s["children"])
         return f"""
 <section class="page-hero"><div class="wrap hero-grid">
-<div><span class="code">{s['letter']} — {E(s['name'])}</span><h1>{E(s['h1'])}</h1><p class="lede">{E(s['lede'])}</p>{btns(ctx)}</div>
+<div><span class="code">{E(s['name'])} · {len(s['children'])} services</span><h1>{E(s['h1'])}</h1><p class="lede">{E(s['lede'])}</p>{btns(ctx)}</div>
 {sheet(s['drawing'], f"Sheet {s['children'][0]['code']} · Elevation")}
 </div></section>
 <section class="sec tight"><div class="wrap measure prose">{''.join(f'<p>{E(p)}</p>' for p in s['intro'])}</div></section>
 {photo_strip(ctx, [s['key']], s['name'] + ' up close', "sec tight ph-sec")}
 <section class="sec tight" style="padding-top:0"><div class="wrap">
-<div class="sec-head"><span class="code">{len(s['children'])} services</span><h2>{E(s['name'])} services</h2></div>
+<div class="sec-head"><h2>{E(s['name'])} services</h2></div>
 <div class="grid g3">{cards}</div></div></section>
 <section class="sec alt"><div class="wrap">
-<div class="sec-head"><span class="code">Guide</span><h2>{E(s['guide_title'])}</h2></div>
+<div class="sec-head"><h2>{E(s['guide_title'])}</h2></div>
 {compare_table(s['guide_cols'], s['guide_rows'], s['guide_note'])}
 </div></section>
 <section class="sec"><div class="wrap measure prose">{factors_block(s['factors'])}</div></section>
 <section class="sec sheet rule-top"><div class="wrap measure">{faq_block(s['faqs'])}</div></section>
-<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="code">Service areas</span><h2>Where we build</h2></div>{areas_chips(ctx)}</div></section>
+<section class="sec tight"><div class="wrap"><div class="sec-head"><h2>Where we build</h2></div>{areas_chips(ctx)}</div></section>
 {cta_band(ctx)}
 """
     graph = [service_schema(path, s["name"], s["meta"]), faq_schema(path, s["faqs"]),
@@ -770,7 +772,7 @@ def build_service(s, c):
             f'<div class="option">{f"""<div class="card-art">{drawing(d, False)}</div>""" if d else ""}<div class="option-body"><h3>{E(n)}</h3><p>{E(t)}</p></div></div>'
             for n, t, d in c["options"])
         inc = "".join(f"<li>{IC['check']}<span>{E(i)}</span></li>" for i in c["included"])
-        spec = "".join(f'<tr><th scope="row">{E(k)}</th><td>{E(v)}</td></tr>' for k, v in c["specs"])
+        spec = "".join(f'<div><dt>{E(k)}</dt><dd>{E(v)}</dd></div>' for k, v in c["specs"])
         here = ' aria-current="page"'
         sib = "".join(f'<li><a href="{href(ctx, s["key"] + "/" + x["slug"] + "/")}"{here if x is c else ""}>{E(x["name"])}</a></li>'
                       for x in s["children"])
@@ -786,18 +788,18 @@ def build_service(s, c):
 <h2>Overview</h2>{''.join(f'<p>{E(p)}</p>' for p in c['overview'])}
 <h2>Styles and options</h2><div class="options">{opts}</div>
 <h2>What's included</h2><ul class="checks two">{inc}</ul>
-<h2>Specifications</h2><div class="spec-wrap"><table class="spec"><tbody>{spec}</tbody></table></div>
+<h2>Specifications</h2><dl class="spec-grid">{spec}</dl>
 {factors_block(c['factors'])}
 <div style="margin-top:2.4em">{faq_block(c['faqs'])}</div>
 </div>
 <aside class="aside" aria-label="Request an estimate">
-{quick_form(ctx, s['name'] + ' — ' + c['name'], c['slug'])}
+{quick_form(ctx, s['name'] + ' / ' + c['name'], c['slug'])}
 <div class="aside-list"><h3>{E(s['name'])}</h3><ul>{sib}</ul></div>
 <div class="aside-list"><h3>Where we build</h3><ul>{cities}</ul></div>
 </aside>
 </div></section>
 {photo_strip(ctx, [s['key'] + '/' + c['slug']], c['name'] + ' up close', "sec tight ph-sec")}
-<section class="sec alt"><div class="wrap"><div class="sec-head"><span class="code">Related</span><h2>Often paired with</h2></div>
+<section class="sec alt"><div class="wrap"><div class="sec-head"><h2>Often paired with</h2></div>
 <div class="related">{rel}</div></div></section>
 {cta_band(ctx, service=c['slug'])}
 """
@@ -815,7 +817,7 @@ def build_services_index():
         out = []
         for s in SILOS:
             cards = "".join(svc_card(ctx, f"{s['key']}/{c['slug']}") for c in s["children"])
-            out.append(f'<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="code">{s["letter"]} — {E(s["nav"])}</span>'
+            out.append(f'<section class="sec tight"><div class="wrap"><div class="sec-head">'
                        f'<h2><a href="{href(ctx, s["key"] + "/")}" style="color:inherit;text-decoration:none">{E(s["name"])}</a></h2><p>{E(s["lede"])}</p></div>'
                        f'<div class="grid g3">{cards}</div></div></section>')
         return (f'<section class="page-hero"><div class="wrap"><span class="code">Catalog</span><h1>All services</h1>'
@@ -826,7 +828,7 @@ def build_services_index():
 
 def build_areas():
     path = "service-areas/"
-    title = "Service Areas — Plano, Frisco, McKinney & More | Keystone Fence & Deck"
+    title = "Service Areas: Plano, Frisco, McKinney & More | Keystone Fence & Deck"
     meta = "Keystone Fence & Deck Co. builds fences, gates and decks across Plano, Frisco, McKinney, Allen, Richardson, Prosper and surrounding North Dallas cities."
     trail = [("Home", ""), ("Service areas", path)]
 
@@ -863,17 +865,17 @@ def build_city(c):
 </div></section>
 <section class="sec"><div class="wrap">
 <div class="measure prose" style="margin-bottom:36px">{''.join(f'<p>{E(p)}</p>' for p in c['intro'])}</div>
-<div class="sec-head"><span class="code">Local considerations</span><h2>Building in {E(c['name'])}</h2></div>
+<div class="sec-head"><h2>Building in {E(c['name'])}</h2></div>
 <div class="commit">{notes}</div>
 </div></section>
 <section class="sec alt"><div class="wrap">
-<div class="sec-head"><span class="code">Popular in {E(c['name'])}</span><h2>What we build most in {E(c['name'])}</h2></div>
+<div class="sec-head"><h2>What we build most in {E(c['name'])}</h2></div>
 <div class="grid g3">{feat}</div>
 <div class="aside-list" style="margin-top:22px"><h3>All trades in {E(c['name'])}</h3><ul style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">{hubs}</ul></div>
 </div></section>
 <section class="sec"><div class="wrap split" style="align-items:start">
-<div><span class="code">Neighborhoods</span><h2 style="margin:14px 0 16px">Neighborhoods we work in</h2><ul class="chips">{hoods}</ul></div>
-<div><span class="code">Nearby</span><h2 style="margin:14px 0 16px">Nearby cities</h2><ul class="chips">{near}</ul>
+<div><h2 style="margin:0 0 16px">Neighborhoods we work in</h2><ul class="chips">{hoods}</ul></div>
+<div><h2 style="margin:0 0 16px">Nearby cities</h2><ul class="chips">{near}</ul>
 <p style="margin:16px 0 0"><a href="{href(ctx, 'service-areas/')}"><strong>All service areas</strong></a></p></div>
 </div></section>
 <section class="sec sheet rule-top"><div class="wrap measure">{faq_block(c['faqs'], f"Questions from {c['name']} homeowners")}</div></section>
@@ -895,7 +897,7 @@ def build_projects():
         filt = '<button type="button" data-filter="all" aria-pressed="true">All</button>' + "".join(
             f'<button type="button" data-filter="{s["key"]}" aria-pressed="false">{E(s["nav"])}</button>' for s in SILOS)
         cards = "".join(project_card(ctx, p) for p in PROJECTS)
-        sample = ('<p class="note"><strong>About these projects</strong>These are typical scopes for the work we do — what each kind of job involves and the '
+        sample = ('<p class="note"><strong>About these projects</strong>These are typical scopes for the work we do: what each kind of job involves and the '
                   'specs that drive the estimate. They are representative, not records of specific jobs.</p>') if CONFIG["fictional"] else ""
         return f"""
 <section class="page-hero"><div class="wrap"><span class="code">Projects</span><h1>What our jobs look like</h1>
@@ -922,11 +924,11 @@ def build_about():
 {sheet("pipe", "Sheet F-04 · The H-brace in our mark")}
 </div></section>
 <section class="sec"><div class="wrap measure prose">{''.join(f'<p>{E(p)}</p>' for p in ABOUT['story'])}
-<p>Look closely at our mark: a post with two diagonal braces. It's the H-brace from a ranch-fence corner — the part that keeps a long run tight for decades — and it happens to make a K.</p></div></section>
-<section class="sec alt"><div class="wrap"><div class="sec-head"><span class="code">Credentials</span><h2>The basics, covered</h2></div><div class="commit">{creds}</div></div></section>
-<section class="sec"><div class="wrap"><div class="sec-head"><span class="code">Our standards</span><h2>What you can hold us to</h2></div><div class="commit">{com}</div></div></section>
-<section class="sec sheet rule-top"><div class="wrap"><div class="sec-head"><span class="code">Who we build for</span><h2>Residential and commercial</h2></div><div class="aud">{aud}</div></div></section>
-<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="code">Service areas</span><h2>Where we work</h2></div>{areas_chips(ctx)}</div></section>
+<p>Look closely at our mark: a post with two diagonal braces. It's the H-brace from a ranch-fence corner (the part that keeps a long run tight for decades), and it happens to make a K.</p></div></section>
+<section class="sec alt"><div class="wrap"><div class="sec-head"><h2>The basics, covered</h2></div><div class="commit">{creds}</div></div></section>
+<section class="sec"><div class="wrap"><div class="sec-head"><h2>What you can hold us to</h2></div><div class="commit commit-open">{com}</div></div></section>
+<section class="sec sheet rule-top"><div class="wrap"><div class="sec-head"><h2>Residential and commercial</h2></div><div class="aud">{aud}</div></div></section>
+<section class="sec tight"><div class="wrap"><div class="sec-head"><h2>Where we work</h2></div>{areas_chips(ctx)}</div></section>
 {cta_band(ctx)}
 """
     page(path, ABOUT["title"], ABOUT["meta"], body, [{"@type": "AboutPage", "@id": url(path) + "#about", "url": url(path), "about": {"@id": BASE + "/#business"}}],
@@ -942,12 +944,12 @@ def build_estimate():
     def body(ctx):
         steps = "".join(f"<li><h3>{E(t)}</h3><p>{E(d)}</p></li>" for t, d in STEPS)
         return f"""
-<section class="page-hero"><div class="wrap"><span class="code">Free · on site · in writing</span><h1>Request a free estimate</h1>
-<p class="lede">Two short steps. Add photos if you have them — they help us arrive prepared. We'll contact you within one business day to book a visit.</p></div></section>
+<section class="page-hero"><div class="wrap"><span class="code">Free, on site and in writing</span><h1>Request a free estimate</h1>
+<p class="lede">Two short steps. Add photos if you have them; they help us arrive prepared. We'll contact you within one business day to book a visit.</p></div></section>
 <section class="sec"><div class="wrap est-layout">
 <div class="form-shell" data-form-shell>
 <form class="form js-lead" data-form="estimate" novalidate>
-{hidden_inputs("estimate", "New estimate request — Keystone website")}
+{hidden_inputs("estimate", "New estimate request: Keystone website")}
 <div class="progress" aria-hidden="true"><div class="on">1 · You and the project</div><div>2 · Details and photos</div></div>
 <div class="step-panel">
 <div class="row2">{fld("e-name", "name", "Full name", auto="name", err="Please enter your name.")}{fld("e-phone", "phone", "Phone", kind="tel", auto="tel", err="Enter a phone number with area code.", extra=' data-phone inputmode="tel"')}</div>
@@ -961,7 +963,7 @@ def build_estimate():
 <div class="step-panel" hidden>
 {fld("e-desc", "description", "Tell us about the project", area=True, rows=6, err="A sentence or two helps us prepare.", help_="Roughly how many feet? Height? Material you're leaning toward? Gates? Anything about slope, access or your HOA?")}
 <div class="row2">
-<div class="field"><label for="e-time">Timeline <span class="opt">(optional)</span></label><select class="select" id="e-time" name="timeline"><option value="">Choose…</option><option>As soon as possible</option><option>Within a month</option><option>1–3 months</option><option>Just planning</option></select></div>
+<div class="field"><label for="e-time">Timeline <span class="opt">(optional)</span></label><select class="select" id="e-time" name="timeline"><option value="">Choose…</option><option>As soon as possible</option><option>Within a month</option><option>1-3 months</option><option>Just planning</option></select></div>
 {fld("e-best", "best_time", "Best time to reach you", req=False, help_="e.g. weekday mornings")}
 </div>
 {choice("hoa", "Is the property in an HOA?", ["Yes", "No", "Not sure"], req=False)}
@@ -975,7 +977,7 @@ def build_estimate():
 <div class="form-actions"><button class="btn btn-line" type="button" data-back>← Back</button><button class="btn btn-primary" type="submit">Send my estimate request {IC['arrow']}</button></div>
 </div>
 </form>
-{success_block("Thanks — we've got your request.", ["We'll contact you within one business day to book a time to walk your property.", "On site, we measure and check grade, drainage, utilities and HOA rules.", "You get an itemized written estimate by email — no pressure, no expiring price."])}
+{success_block("Thanks, we've got your request.", ["We'll contact you within one business day to book a time to walk your property.", "On site, we measure and check grade, drainage, utilities and HOA rules.", "You get an itemized written estimate by email. No pressure, no expiring price."])}
 </div>
 <aside class="aside" aria-label="What happens next">
 <div class="quote-card"><h2>Rather talk?</h2><p>Call and we'll take the details by phone.</p><a class="btn btn-dark btn-block" href="{TEL}" data-loc="estimate-aside">{IC['phone']} {E(CONFIG['phone'])}</a>
@@ -1005,7 +1007,7 @@ def build_contact():
 <table class="spec"><tbody>
 <tr><th scope="row">Phone</th><td><a class="tel" href="{TEL}" data-loc="contact">{E(CONFIG['phone'])}</a></td></tr>
 <tr><th scope="row">Email</th><td><a href="mailto:{A(CONFIG['email'])}">{mail_text(CONFIG['email'])}</a></td></tr>
-<tr><th scope="row">Based in</th><td>Plano, Texas — serving Collin County and North Dallas</td></tr>
+<tr><th scope="row">Based in</th><td>Plano, Texas, serving Collin County and North Dallas</td></tr>
 {hours}
 </tbody></table>
 <div style="margin-top:24px">{areas_chips(ctx)}</div>
@@ -1014,7 +1016,7 @@ def build_contact():
 <div class="form-shell" data-form-shell>
 <h2 style="font-size:2rem;margin-bottom:6px">Send a message</h2>
 <form class="form js-lead" data-form="contact" novalidate>
-{hidden_inputs("contact", "Website message — Keystone")}
+{hidden_inputs("contact", "Website message: Keystone")}
 {fld("c-name", "name", "Name", auto="name", err="Please enter your name.")}
 <div class="row2">{fld("c-phone", "phone", "Phone", kind="tel", auto="tel", err="Enter a phone number with area code.", extra=' data-phone inputmode="tel"')}{fld("c-email", "email", "Email", kind="email", auto="email", err="Enter a valid email address.")}</div>
 {fld("c-msg", "message", "Message", area=True, rows=5, err="Please add a short message.")}
@@ -1063,7 +1065,7 @@ def build_notes():
             f'<div class="tree-silo"><a href="{href(ctx, s["key"] + "/")}">/{s["key"]}/</a><ul>'
             + "".join(f'<li><a href="{href(ctx, s["key"] + "/" + c["slug"] + "/")}">{c["slug"]}/</a></li>' for c in s["children"])
             + "</ul></div>" for s in SILOS)
-        areas = " · ".join(f'<a href="{href(ctx, "service-areas/" + c["slug"] + "/")}">/{c["slug"]}/</a>' for c in CITIES)
+        areas = ", ".join(f'<a href="{href(ctx, "service-areas/" + c["slug"] + "/")}">/{c["slug"]}/</a>' for c in CITIES)
         rows = "".join(f'<tr><td>/{E(p.replace("index.html", ""))}</td><td>{E(k)}</td><td>{E(t)}</td></tr>'
                        for p, _, k, t in PAGES if k not in ("Legal", "404"))
         tmpl = [
@@ -1076,9 +1078,9 @@ def build_notes():
         trows = "".join(f"<tr><td>{E(a)}</td><td>{E(b)}</td><td>{E(c)}</td></tr>" for a, b, c in tmpl)
         rules = [
             "Every service page links up to its hub (breadcrumb and sidebar) and the hub links down to every child.",
-            "Each service links sideways to two or three related services — one or more in another silo, where jobs genuinely pair (privacy fence → staining, walk gates).",
+            "Each service links sideways to two or three related services, with one or more in another silo where jobs genuinely pair (privacy fence → staining, walk gates).",
             "Every service page links to every city page with descriptive anchors (\"Wood Privacy Fence in Frisco\"); every city page links back to its top services and all four hubs.",
-            "The footer carries hubs, cities and six popular services only — not every URL — so link weight stays concentrated.",
+            "The footer carries hubs, cities and six popular services only (not every URL), so link weight stays concentrated.",
             "Every estimate CTA on a service page passes ?service= so the form arrives pre-filled.",
         ]
         schema = [
@@ -1100,36 +1102,36 @@ def build_notes():
 <p class="lede">A working website for a multi-service local contractor, built so each trade can rank on its own. {E(CONFIG['name'])} is fictional; the architecture, templates and lead system are real.</p></div></section>
 
 <section class="sec"><div class="wrap">
-<div class="sec-head"><span class="code">01 · Structure</span><h2>{N_TRADES.capitalize()} silos, one site</h2>
-<p class="lede">Each trade is a self-contained topic cluster: a hub page for the head term and child pages for specific services. Internal links run down from the hub, sideways between related services and up through breadcrumbs — so each cluster builds its own relevance instead of competing with the others.</p></div>
+<div class="sec-head"><h2>{N_TRADES.capitalize()} silos, one site</h2>
+<p class="lede">Each trade is a self-contained topic cluster: a hub page for the head term and child pages for specific services. Internal links run down from the hub, sideways between related services and up through breadcrumbs, so each cluster builds its own relevance instead of competing with the others.</p></div>
 <div class="tree"><div class="tree-root">/ (home)</div><div class="tree-silos">{silos}</div>
 <div class="tree-areas"><strong>Location layer:</strong> <a href="{href(ctx, 'service-areas/')}">/service-areas/</a> → {areas}</div></div>
-<p class="help" style="margin-top:14px">The same pattern carries any multi-trade contractor: swap {E(" / ".join(x["nav"] for x in SILOS))} for, say, Demolition / Land Clearing / Tree Services / Site Cleanup, and the templates, linking rules and schema carry over unchanged. Adding a trade is one data entry — the Land Clearing silo was added that way, and every menu, footer, sitemap and city page picked it up automatically.</p>
+<p class="help" style="margin-top:14px">The same pattern carries any multi-trade contractor: swap {E(" / ".join(x["nav"] for x in SILOS))} for, say, Demolition / Land Clearing / Tree Services / Site Cleanup, and the templates, linking rules and schema carry over unchanged. Adding a trade is one data entry: the Land Clearing silo was added that way, and every menu, footer, sitemap and city page picked it up automatically.</p>
 </div></section>
 
 <section class="sec alt"><div class="wrap">
-<div class="sec-head"><span class="code">02 · Templates</span><h2>Five page types</h2></div>
+<div class="sec-head"><h2>Five page types</h2></div>
 <div class="spec-wrap"><table class="compare"><thead><tr><th scope="col">Template</th><th scope="col">Built to rank for</th><th scope="col">What's on it</th></tr></thead><tbody>{trows}</tbody></table></div>
 </div></section>
 
 <section class="sec"><div class="wrap measure prose">
-<span class="code">03 · Internal linking</span><h2 style="margin-top:14px">Linking rules</h2>
+<h2>Linking rules</h2>
 <ul class="checks">{''.join(f"<li>{IC['check']}<span>{E(r)}</span></li>" for r in rules)}</ul>
-<span class="code" style="margin-top:28px">04 · Structured data</span><h2 style="margin-top:14px">Schema by page type</h2>
+<h2>Schema by page type</h2>
 <div class="spec-wrap"><table class="compare"><thead><tr><th scope="col">Page</th><th scope="col">JSON-LD</th></tr></thead><tbody>{srows}</tbody></table></div>
-<p class="help">FAQPage markup stays for machine readability and AI answer engines, but the build doesn't count on FAQ rich results — Google limited those to government and health sites in 2023.</p>
-<span class="code" style="margin-top:28px">05 · On-page</span><h2 style="margin-top:14px">Implemented on every page</h2>
+<p class="help">FAQPage markup stays for machine readability and AI answer engines, but the build doesn't count on FAQ rich results. Google limited those to government and health sites in 2023.</p>
+<h2>Implemented on every page</h2>
 <ul class="checks two">{''.join(f"<li>{IC['check']}<span>{E(x)}</span></li>" for x in ["Unique title, 70 characters or fewer", "Unique meta description, 165 or fewer", "One H1, logical H2/H3 below it", "Canonical URL", "Breadcrumbs, visible and in schema", "Open Graph and social image", "XML sitemap and robots.txt", "Indexing switch in one config value"])}</ul>
-<span class="code" style="margin-top:28px">06 · Conversion</span><h2 style="margin-top:14px">Lead system</h2>
+<h2>Lead system</h2>
 <ul class="checks">{''.join(f"<li>{IC['check']}<span>{E(x)}</span></li>" for x in ["Free Estimate and click-to-call in the header, plus a sticky call/estimate bar on phones", "A quote card on every service page, pre-labelled with that service", "Two-step estimate form: contact first, details and photos second", "Phone photos resized in the browser before upload, so large images don't fail", "If the form provider refuses photos, the lead is still delivered without them", "Honeypot spam trap; GA4 generate_lead and click_to_call events when analytics is on"])}</ul>
-<span class="code" style="margin-top:28px">07 · Performance</span><h2 style="margin-top:14px">Light by design</h2>
+<h2>Light by design</h2>
 <p>Every illustration is inline SVG drawn in code, crisp on any screen. {film}: it shows its poster first, stays still for reduced-motion and Save-Data visitors, and pauses off-screen. Maps load lazily. Photos dropped into the photos folder are resized to 800 and 1600 px WebP and JPEG with all metadata, GPS included, stripped. One stylesheet, one deferred script, self-hosted fonts.</p>
-<span class="code" style="margin-top:28px">08 · WordPress</span><h2 style="margin-top:14px">How it maps to WordPress</h2>
+<h2>How it maps to WordPress</h2>
 <p>The URL tree becomes the page hierarchy one to one (parent and child pages with identical slugs). Each template becomes a block pattern; titles, metas and schema move to Rank Math or Yoast; the estimate form becomes Gravity Forms or WPForms with file upload; GA4 and Search Console connect through Site Kit. Adding a city is one new page from the city template.</p>
 </div></section>
 
 <section class="sec alt"><div class="wrap">
-<div class="sec-head"><span class="code">09 · URL map</span><h2>Every page and its target</h2></div>
+<div class="sec-head"><h2>Every page and its target</h2></div>
 <div class="spec-wrap"><table class="url-table"><thead><tr><th scope="col">URL</th><th scope="col">Type</th><th scope="col">Primary target</th></tr></thead><tbody>{rows}</tbody></table></div>
 </div></section>
 """
@@ -1143,7 +1145,7 @@ def build_404():
     body = f"""<main id="main"><section class="sec"><div class="wrap split">
 <div><span class="code">404</span><h1 style="margin:14px 0 18px">This line doesn't go anywhere.</h1>
 <p class="lede">The page you were after has moved or never existed. Try one of these instead.</p>
-<div class="btn-row"><a class="btn btn-primary" href="/free-estimate/">Request a free estimate {IC['arrow']}</a><a class="btn btn-line" href="/">Home</a></div>
+<div class="btn-row"><a class="btn btn-primary" href="/free-estimate/">Free estimate {IC['arrow']}</a><a class="btn btn-line" href="/">Home</a></div>
 <ul class="chips" style="margin-top:22px">{''.join(f'<li><a href="/{s["key"]}/">{E(s["name"])}</a></li>' for s in SILOS)}</ul></div>
 {sheet("removal", "Sheet R-05 · Removed")}
 </div></section></main>"""
