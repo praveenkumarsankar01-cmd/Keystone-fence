@@ -20,11 +20,11 @@ serves.
 
 | File | Source | Author | Licence | Notes |
 | --- | --- | --- | --- | --- |
-| `cards/fencing/backyard-privacy-fence.jpg` | [pexels.com/photo/11903184](https://www.pexels.com/photo/wooden-shed-on-a-backyard-11903184/) | Shazard R. | Pexels License | |
-| `cards/gates/wood-double-gate.jpg` | [pexels.com/photo/38472754](https://www.pexels.com/photo/charming-rustic-house-behind-wooden-gate-38472754/) | Leandro Rossi | Pexels License | |
+| `cards/fencing/razor-wire-chain-link.jpg` | Supplied by the site owner | — | Owner-supplied | |
+| `cards/gates/gate-keypad-intercom.jpg` | Supplied by the site owner | — | Owner-supplied | |
+| `cards/land-clearing/dozer-and-grader.jpg` | Supplied by the site owner | — | Owner-supplied | |
 | `cards/decks/wood-deck-railing.jpg` | [pexels.com/photo/10847167](https://www.pexels.com/photo/brown-wooden-patio-10847167/) | Đỗ Huy Hoàng | Pexels License | |
 | `cards/repair/fixing-wood-fence.jpg` | [pexels.com/photo/8447789](https://www.pexels.com/photo/woman-fixing-wooden-fence-8447789/) | Los Muertos Crew | Pexels License | |
-| `cards/land-clearing/dozer-clearing-field.jpg` | [pexels.com/photo/9577586](https://www.pexels.com/photo/yellow-and-black-heavy-equipment-on-brown-field-9577586/) | Udaya Jayasiri Gunawardhana | Pexels License | Same photo as `land-clearing/1-dozer-cleared-field.jpg` |
 | `gates/1-cedar-patio-gate.jpg` | [pexels.com/photo/922797](https://www.pexels.com/photo/photo-of-opened-brown-wooden-sliding-house-gate-922797/) | Gerritt Tisdale | Pexels License | |
 | `gates/2-stained-double-gate.jpg` | [pexels.com/photo/18900649](https://www.pexels.com/photo/closed-wooden-fence-18900649/) | Gene Samit | Pexels License | |
 | `gates/3-arched-entry-gate.jpg` | [pexels.com/photo/12274276](https://www.pexels.com/photo/front-view-of-a-bungalow-with-wooden-fence-12274276/) | Robert So | Pexels License | |
