@@ -186,10 +186,10 @@ def head(ctx, path, title, meta, graph):
 <meta property="og:url" content="{A(url(path))}">
 <meta property="og:image" content="{A(BASE + '/assets/og.png?v=' + version('assets/og.png'))}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F1F1EC">
+<meta name="theme-color" content="#F4F8FB">
 <link rel="icon" href="{asset(ctx, 'favicon.svg')}" type="image/svg+xml">
-<link rel="preload" href="{asset(ctx, 'assets/fonts/big-shoulders-display.woff2')}" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{asset(ctx, 'assets/fonts/hanken-grotesk.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{asset(ctx, 'assets/fonts/poppins-400.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{asset(ctx, 'assets/fonts/poppins-600.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{asset(ctx, 'assets/site.css')}">
 <script type="application/ld+json">{ld}</script>
 {ga}</head>
@@ -1156,9 +1156,9 @@ def build_404():
 
 # ═══════════════════════════════════════════════════════════ assets
 def favicon():
-    return ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="6" fill="#F1F1EC"/>'
-            '<rect x="2.5" y="2.5" width="35" height="35" fill="none" stroke="#16191B" stroke-width="2"/>'
-            '<rect x="11" y="7" width="5.5" height="26" fill="#16191B"/>'
+    return ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="6" fill="#F4F8FB"/>'
+            '<rect x="2.5" y="2.5" width="35" height="35" fill="none" stroke="#26313D" stroke-width="2"/>'
+            '<rect x="11" y="7" width="5.5" height="26" fill="#26313D"/>'
             '<path d="M16.5 20 L29 7.5 L32.5 7.5 L32.5 10 L20.6 21.6 Z" fill="#A0552A"/>'
             '<path d="M18.4 18.6 L32.5 30 L32.5 33 L29 33 L16.5 22.4 Z" fill="#A0552A"/></svg>')
 

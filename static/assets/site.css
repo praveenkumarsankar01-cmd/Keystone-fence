@@ -1,18 +1,17 @@
-/* Self-hosted fonts (latin subset, SIL Open Font License). Big Shoulders
-   Display and Hanken Grotesk are variable fonts — one file covers every weight. */
-@font-face{font-family:'Big Shoulders Display';font-style:normal;font-weight:700 900;font-display:swap;src:url(fonts/big-shoulders-display.woff2) format('woff2')}
-@font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/hanken-grotesk.woff2) format('woff2')}
-@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-400.woff2) format('woff2')}
-@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-500.woff2) format('woff2')}
-@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-mono-600.woff2) format('woff2')}
+/* Self-hosted fonts: Poppins (SIL Open Font License, latin subset), the face used on
+   Origin Dental, in four weights. */
+@font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/poppins-400.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/poppins-500.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/poppins-600.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/poppins-700.woff2) format('woff2')}
 
 /* ════════════════════════════════════════════════════════════════════
    KEYSTONE FENCE & DECK CO. — site stylesheet
    Identity: the builder's elevation sheet. Drafting-vellum ground,
    powder-coated-steel ink, stained-cedar accent, lumber-grade-stamp
    green for "included" and success states.
-   Type: Big Shoulders Display (tall condensed — reads like pickets),
-   Hanken Grotesk for text, IBM Plex Mono for dimensions, codes, specs.
+   Type and ground follow Origin Dental: Poppins throughout, white cards on a
+   light blue-grey page, slate text.
 
    Deliberately single-theme: the drawing-sheet world is the brand, so
    every surface and colour is painted explicitly rather than following
@@ -20,19 +19,19 @@
    ════════════════════════════════════════════════════════════════════ */
 
 :root{
-  --vellum:#F1F1EC; --sheet:#FAFAF7; --sheet-2:#E7E8E1; --sheet-3:#DCDDD5;
-  --steel:#16191B; --steel-2:#22272A; --steel-3:#3A4145;
-  --graphite:#575E62; --pencil:#80878A;
-  --rule:#D6D7D0; --rule-2:#BEC0B8;
+  --vellum:#F4F8FB; --sheet:#FFFFFF; --sheet-2:#E7F3FA; --sheet-3:#CDE7F5;
+  --steel:#26313D; --steel-2:#2B3542; --steel-3:#3A4655;
+  --graphite:#4A5562; --pencil:#66717D;
+  --rule:#E2E8EE; --rule-2:#D0DAE2;
   --cedar:#A0552A; --cedar-deep:#7C401E; --cedar-tint:#EFDCCD; --cedar-on-dark:#DE915C;
   --wood:#D9AE86; --wood-2:#C19068; --wood-3:#E8C9A8; --composite:#8C8279;
   --stamp:#2F5B4C; --stamp-tint:#DCE8E2;
   --alert:#A33A2B; --alert-tint:#F4DFDB;
   --on-dark:#ECECE6; --on-dark-2:#B3B8B4;
 
-  --display:'Big Shoulders Display','Big Shoulders','Arial Narrow',sans-serif;
-  --text:'Hanken Grotesk','Segoe UI',system-ui,-apple-system,sans-serif;
-  --mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+  --display:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --text:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 
   --wrap:1200px;
   --gutter:clamp(16px,4vw,40px);
@@ -59,8 +58,8 @@ ul,ol{margin:0 0 1em;padding-left:1.2em}
 
 /* ── type ───────────────────────────────────────────────────────── */
 h1,h2,h3,h4{color:var(--steel);margin:0;text-wrap:balance}
-h1,.h1{font:800 clamp(2.6rem,6.2vw,4.7rem)/.93 var(--display);text-transform:uppercase;letter-spacing:.004em}
-h2,.h2{font:800 clamp(2rem,3.7vw,3rem)/1 var(--display);letter-spacing:.004em}
+h1,.h1{font:600 clamp(2.2rem,4.4vw,3.4rem)/1.12 var(--display);letter-spacing:-.02em}
+h2,.h2{font:600 clamp(1.6rem,2.8vw,2.25rem)/1.2 var(--display);letter-spacing:-.015em}
 h3,.h3{font:700 1.22rem/1.3 var(--text);letter-spacing:-.01em}
 h4{font:700 1rem/1.35 var(--text)}
 .lede{font-size:clamp(1.06rem,1.6vw,1.22rem);line-height:1.6;color:var(--graphite);max-width:60ch}
@@ -105,9 +104,9 @@ h4{font:700 1rem/1.35 var(--text)}
 .tel{font-family:var(--mono);font-weight:500;letter-spacing:.02em}
 
 /* ── header ─────────────────────────────────────────────────────── */
-.hdr{position:sticky;top:0;z-index:60;background:rgba(241,241,236,.94);backdrop-filter:saturate(1.4) blur(10px);
+.hdr{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(10px);
   border-bottom:1px solid var(--rule)}
-.hdr.scrolled{box-shadow:0 6px 24px -14px rgba(22,25,27,.35)}
+.hdr.scrolled{box-shadow:0 6px 24px -14px rgba(38,49,61,.35)}
 .hdr-in{display:flex;align-items:center;gap:24px;height:var(--hdr)}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--steel);flex:none}
 .brand-mark{display:block}
@@ -115,7 +114,7 @@ h4{font:700 1rem/1.35 var(--text)}
 .bm-post{fill:var(--steel)}
 .bm-brace{fill:var(--cedar)}
 .brand-word{display:grid;line-height:1}
-.brand-name{font:800 1.62rem/.9 var(--display);letter-spacing:.04em;text-transform:uppercase}
+.brand-name{font:700 1.3rem/1 var(--display);letter-spacing:.02em;text-transform:uppercase}
 .brand-sub{font:500 9.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--graphite);margin-top:5px}
 .nav{display:flex;align-items:center;gap:2px;margin-left:auto}
 .nav-item{position:relative}
@@ -126,7 +125,7 @@ h4{font:700 1rem/1.35 var(--text)}
 .nav-link .chev{width:10px;height:10px;transition:transform .2s}
 .nav-item.open>.nav-link .chev{transform:rotate(180deg)}
 .mega{position:absolute;top:calc(100% + 12px);left:50%;transform:translate(-50%,6px);width:min(560px,90vw);
-  background:var(--sheet);border:1px solid var(--rule-2);box-shadow:0 24px 60px -24px rgba(22,25,27,.4);
+  background:var(--sheet);border:1px solid var(--rule-2);box-shadow:0 24px 60px -24px rgba(38,49,61,.4);
   padding:22px;display:grid;grid-template-columns:200px 1fr;gap:20px;opacity:0;visibility:hidden;
   transition:opacity .18s,transform .18s,visibility .18s}
 .mega::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
@@ -159,7 +158,7 @@ h4{font:700 1rem/1.35 var(--text)}
 .drawer-body{overflow-y:auto;padding:8px var(--gutter) 24px;flex:1}
 .d-group{border-bottom:1px solid var(--rule)}
 .d-row{display:flex;align-items:center;justify-content:space-between;width:100%;padding:16px 0;background:none;border:0;
-  font:700 1.5rem/1 var(--display);letter-spacing:.02em;text-transform:uppercase;color:var(--steel);text-decoration:none;cursor:pointer;text-align:left}
+  font:600 1.12rem/1.2 var(--display);letter-spacing:-.005em;color:var(--steel);text-decoration:none;cursor:pointer;text-align:left}
 .d-row .chev{width:14px;height:14px;transition:transform .2s}
 .d-group.open .d-row .chev{transform:rotate(180deg)}
 .d-sub{display:none;list-style:none;margin:0 0 14px;padding:0}
@@ -285,18 +284,18 @@ h4{font:700 1rem/1.35 var(--text)}
 .hero .lede{margin-bottom:28px}
 .page-hero{padding-block:clamp(28px,4.5vw,56px) clamp(36px,5vw,64px);border-bottom:1px solid var(--rule)}
 .page-hero .hero-grid{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}
-.page-hero h1{font-size:clamp(2.3rem,5vw,3.9rem);margin:14px 0 18px}
+.page-hero h1{font-size:clamp(2rem,4vw,3rem);margin:14px 0 18px}
 
 /* ── cards ──────────────────────────────────────────────────────── */
 .card{background:var(--sheet);border:1px solid var(--rule-2);display:flex;flex-direction:column;
   text-decoration:none;color:inherit;transition:border-color .2s,transform .2s,box-shadow .2s;position:relative}
-a.card:hover{border-color:var(--steel);transform:translateY(-2px);box-shadow:0 18px 40px -26px rgba(22,25,27,.45)}
+a.card:hover{border-color:var(--steel);transform:translateY(-2px);box-shadow:0 18px 40px -26px rgba(38,49,61,.45)}
 .card-art{background:var(--vellum);border-bottom:1px solid var(--rule);padding:14px 14px 10px;aspect-ratio:16/9;display:flex;align-items:center}
 .card-art .drawing{max-height:100%}
 .card-body{padding:18px 18px 20px;display:grid;gap:8px;align-content:start;flex:1}
 .card-body p{margin:0;font-size:15px;line-height:1.55}
 .card-code{font:500 11px var(--mono);letter-spacing:.12em;color:var(--cedar-deep);text-transform:uppercase}
-.card h3{font:800 1.5rem/1.02 var(--display);letter-spacing:.01em}
+.card h3{font:600 1.15rem/1.3 var(--display);letter-spacing:-.005em}
 .card-more{margin-top:auto;padding-top:10px;font:600 13.5px var(--text);color:var(--steel);display:flex;align-items:center;gap:8px}
 .card-more svg{width:14px;height:14px;transition:transform .2s}
 a.card:hover .card-more svg{transform:translateX(3px)}
@@ -353,7 +352,7 @@ a.card:hover .card-more svg{transform:translateX(3px)}
 /* audiences */
 .aud{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .aud > div{border-top:2px solid var(--steel);padding-top:14px;display:grid;gap:6px;align-content:start}
-.aud h3{font:800 1.45rem/1 var(--display)}
+.aud h3{font:600 1.12rem/1.3 var(--display)}
 .aud p{margin:0;font-size:14.5px;line-height:1.55}
 
 /* dark band */
@@ -463,9 +462,9 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .thumbs:empty{display:none}
 .thumb{position:relative;aspect-ratio:1;background:var(--sheet-2);border:1px solid var(--rule-2);overflow:hidden}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.thumb button{position:absolute;top:4px;right:4px;width:26px;height:26px;border:0;border-radius:50%;background:rgba(22,25,27,.82);
+.thumb button{position:absolute;top:4px;right:4px;width:26px;height:26px;border:0;border-radius:50%;background:rgba(38,49,61,.82);
   color:#fff;cursor:pointer;font:700 14px/1 var(--text);display:grid;place-items:center}
-.thumb small{position:absolute;left:0;right:0;bottom:0;background:rgba(22,25,27,.7);color:#fff;font:500 10px/1.2 var(--mono);padding:3px 5px;
+.thumb small{position:absolute;left:0;right:0;bottom:0;background:rgba(38,49,61,.7);color:#fff;font:500 10px/1.2 var(--mono);padding:3px 5px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .consent{font-size:13px;line-height:1.5;color:var(--graphite)}
@@ -546,7 +545,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 @media(max-width:760px){
   body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
   .mbar{display:grid;grid-template-columns:1fr 1.25fr;position:fixed;left:0;right:0;bottom:0;z-index:70;
-    background:var(--steel);padding:8px 8px calc(8px + env(safe-area-inset-bottom));gap:8px;box-shadow:0 -8px 24px -12px rgba(22,25,27,.5)}
+    background:var(--steel);padding:8px 8px calc(8px + env(safe-area-inset-bottom));gap:8px;box-shadow:0 -8px 24px -12px rgba(38,49,61,.5)}
   .mbar .btn{min-height:48px;font-size:14.5px;padding:0 10px}
   .g3,.commit{grid-template-columns:repeat(2,minmax(0,1fr))}
   .options{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -557,11 +556,11 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 }
 @media(max-width:620px){
   body{font-size:16px}
-  .brand-name{font-size:1.38rem}
+  .brand-name{font-size:1.15rem}
   .brand-sub{font-size:8.5px;letter-spacing:.16em}
   .brand-mark{width:32px;height:32px}
-  .hero h1{font-size:clamp(2.35rem,10.5vw,3rem)}
-  .page-hero h1{font-size:clamp(2.05rem,9vw,2.7rem)}
+  .hero h1{font-size:clamp(1.9rem,8vw,2.4rem)}
+  .page-hero h1{font-size:clamp(1.75rem,7.4vw,2.2rem)}
   .btn-row .btn{flex:1 1 auto}
   .hero .btn-row .btn{flex:1 1 100%}
   /* small-card grids sit two-up on phones instead of one long column */
@@ -717,7 +716,7 @@ figure{margin:0}
 .silo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .silo-cta{background:var(--steel-2);border-color:var(--steel-2);color:var(--on-dark-2)}
 .silo-cta .card-body{align-content:center;gap:12px;padding:26px 24px}
-.silo-cta h3{color:var(--on-dark);font:800 1.9rem/1 var(--display)}
+.silo-cta h3{color:var(--on-dark);font:600 1.45rem/1.25 var(--display)}
 .silo-cta .card-code{color:var(--cedar-on-dark)}
 .silo-cta p{color:var(--on-dark-2)}
 .silo-cta .btn{justify-self:start;margin-top:6px}
@@ -801,14 +800,14 @@ figure{margin:0}
 /* ── bigger hero video ──────────────────────────────────────────── */
 @media(min-width:1181px){
   .hero .hero-grid{grid-template-columns:minmax(0,3.75fr) minmax(0,6.25fr);gap:48px}
-  .hero h1{font-size:clamp(2.6rem,5.6vw,4.3rem)}
+  .hero h1{font-size:clamp(2.2rem,4.4vw,3.4rem)}
 }
 @media(max-width:620px){.hero .vid-frame{margin-inline:calc(var(--gutter) * -1 + 4px);padding:32px 6px 6px}}
 
 /* ── real map with the line map as its key ──────────────────────── */
 .map-duo{position:relative}
 .map-key{position:absolute;z-index:3;top:10px;right:10px;width:44%;padding:6px;background:var(--sheet);
-  border:1px solid var(--rule-2);box-shadow:0 2px 10px rgba(22,25,27,.12)}
+  border:1px solid var(--rule-2);box-shadow:0 2px 10px rgba(38,49,61,.12)}
 .map-key svg{display:block;width:100%;height:auto}
 .cv-key .cv-lbl{font-size:27px;letter-spacing:.03em}
 .cv-key .cv-sub{font-size:19px;letter-spacing:.05em}
@@ -879,7 +878,7 @@ figure{margin:0}
    standards that used to sit under the buttons get their own strip. */
 @media(min-width:1181px){
   .hero .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
-  .hero h1{font-size:clamp(2.6rem,4.3vw,3.9rem)}
+  .hero h1{font-size:clamp(2.2rem,3.6vw,3.2rem)}
 }
 .hero .lede{max-width:50ch;text-wrap:pretty}
 .proof-bar{background:var(--sheet);border-bottom:1px solid var(--rule)}
