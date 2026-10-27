@@ -5,8 +5,8 @@ CONFIG = dict(
     short="Keystone Fence & Deck",
     phone="(469) 555-0148",          # 555-01xx is reserved for fiction; replace with the real line
     phone_e164="+14695550148",
-    email="estimates@keystonefence.example",
-    base_url="https://www.keystonefence.example",   # production domain: canonicals, sitemap, schema
+    email="estimates@keystonefencedeck.com",       # unregistered domain: looks real, reaches no one
+    base_url="https://keystone-fence02.vercel.app",   # production domain: canonicals, sitemap, schema
     city="Plano", region="TX", region_name="Texas",
     hours=[("Mon-Fri", "7:00 am - 6:00 pm"), ("Saturday", "8:00 am - 2:00 pm"), ("Sunday", "Closed (storm calls by phone)")],
     hours_schema=[(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "07:00", "18:00"), (["Saturday"], "08:00", "14:00")],
